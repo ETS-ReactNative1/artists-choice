@@ -1,0 +1,126 @@
+#shows-section {
+  font-family: "Exo", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#shows-section #shows-section-header {
+  font-size: 48px;
+  font-weight: 900;
+}
+
+#shows-section #shows-section-location-header {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+#shows-section #shows-section-location-header #shows-change-location {
+  font-size: 18px;
+  color: red;
+  margin-top: 5px;
+}
+
+#shows-section #shows-section-location-header #shows-change-location #location-icon {
+  margin-right: 5px;
+}
+
+#shows-section #shows-section-location-header #shows-change-location #shows-change-location-button {
+  background: none;
+  border: none;
+  color: red;
+}
+
+#shows-section #shows-section-location-header #shows-change-location #shows-change-location-button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#shows-section #shows-section-location-header #shows-change-location #shows-change-location-button:focus {
+  outline: none;
+}
+
+#shows-section #location-searchbar-container {
+  margin: auto;
+  max-width: 400px;
+}
+
+#shows-section #location-searchbar-container .location-searchbar {
+  margin-top: 10px;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+#shows-section #location-searchbar-container .location-searchbar-hidden {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+}
+
+#shows-section #location-searchbar-container #searchbar-results-container {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding-left: 18px;
+  padding-right: 18px;
+  z-index: 10;
+}
+
+#shows-section #location-searchbar-container #searchbar-results-container .location-searchbar-result {
+  border: 1px solid #c8c8c8;
+  border-top: none;
+  background-color: white;
+}
+
+#shows-section #location-searchbar-container #searchbar-results-container .location-searchbar-result:hover {
+  background-color: #ececec;
+  cursor: pointer;
+}
+
+#shows-section #shows-list {
+  padding: 0;
+}
+
+#shows-section .showItem {
+  border-bottom: 1px solid black;
+  padding: 10px;
+  text-align: left;
+  list-style: none;
+  position: relative;
+}
+
+#shows-section .showItem .showImage {
+  float: left;
+  margin-right: 10px;
+}
+
+#shows-section .showItem .showName {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+#shows-section .showItem .showVenue {
+  font-size: 20px;
+}
+
+#shows-section .showItem .showLocation {
+  font-size: 18px;
+}
+
+#shows-section .showItem .showDateTime {
+  font-size: 24px;
+}
+
+#shows-section .showItem .buyTicketsButton {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#shows-section #more-shows-button {
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=showsComponent.css.map */

@@ -1,0 +1,119 @@
+#shows-section {
+  font-family: "Exo", sans-serif;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  #shows-section-header {
+    font-size: 48px;
+    font-weight: 900;
+  }
+  #shows-section-location-header {
+    font-size: 26px;
+    margin-bottom: 10px;
+
+    #shows-change-location {
+      font-size: 18px;
+      color: red;
+
+      margin-top: 5px;
+
+      #location-icon {
+        margin-right: 5px;
+      }
+
+      #shows-change-location-button {
+        background: none;
+        border: none;
+        color: red;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  #location-searchbar-container {
+    margin: auto;
+    max-width: 400px;
+
+    .location-searchbar {
+      margin-top: 10px;
+      transform: scaleY(1);
+      transform-origin: top center;
+      transition: all 0.25s ease;
+    }
+
+    .location-searchbar-hidden {
+      transform: scaleY(0);
+    }
+
+    #searchbar-results-container {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      padding-left: 18px;
+      padding-right: 18px;
+      z-index: 10;
+      .location-searchbar-result {
+        border: 1px solid rgb(200, 200, 200);
+        border-top: none;
+        background-color: white;
+
+        &:hover {
+          background-color: rgb(236, 236, 236);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  #shows-list {
+    padding: 0;
+  }
+
+  .showItem {
+    border-bottom: 1px solid black;
+    padding: 10px;
+    text-align: left;
+    list-style: none;
+    position: relative;
+
+    .showImage {
+      float: left;
+      margin-right: 10px;
+    }
+
+    .showName {
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .showVenue {
+      font-size: 20px;
+    }
+
+    .showLocation {
+      font-size: 18px;
+    }
+
+    .showDateTime {
+      font-size: 24px;
+    }
+
+    .buyTicketsButton {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  }
+
+  #more-shows-button {
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}

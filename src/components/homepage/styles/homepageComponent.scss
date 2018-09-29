@@ -1,0 +1,849 @@
+#top-section-1 {
+  background-color: white;
+}
+
+#top-section-2 {
+  background-color: #bbbbbb;
+}
+
+#top-section-3 {
+  background-color: #bbbbbb;
+}
+
+#top-section-4 {
+  background-color: white;
+}
+
+#logo-star-top {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 38vmin;
+  max-width: 100%;
+}
+
+#social-icons-top {
+  position: relative;
+  top: 0;
+  left: 0;
+  text-align: left;
+  padding: 20px;
+
+  .social-icon {
+    font-size: 40px;
+    margin-right: 20px;
+  }
+}
+
+#joinButtons {
+  position: absolute;
+  bottom: 5vmax;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 350px;
+  font-family: "Exo", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+
+  #joinAsArtistButton {
+    padding: 20px;
+    color: black;
+    background-color: white;
+
+    &:hover {
+      cursor: pointer;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      display: block;
+      left: 0%;
+      bottom: 5px;
+      background: black;
+      transition: width 0.2s ease;
+      -webkit-transition: width 0.2s ease;
+    }
+
+    &:hover:after,
+    &:focus:after,
+    &:active:after {
+      width: 100%;
+    }
+  }
+
+  #joinAsFanButton {
+    padding: 20px;
+    color: white;
+    background-color: black;
+
+    &:hover {
+      cursor: pointer;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      display: block;
+      right: 0%;
+      bottom: 5px;
+      background: white;
+      transition: width 0.2s ease;
+      -webkit-transition: width 0.2s ease;
+    }
+
+    &:hover:after,
+    &:focus:after,
+    &:active:after {
+      width: 100%;
+    }
+  }
+
+  .joinButtonText {
+    &:after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      display: block;
+      left: 0%;
+      bottom: 5px;
+      background: black;
+      transition: width 0.2s ease;
+      -webkit-transition: width 0.2s ease;
+    }
+
+    &:hover:after,
+    &:focus:after,
+    &:active:after {
+      width: 100%;
+    }
+  }
+}
+
+#myh-section {
+  background-color: black;
+  overflow: hidden;
+
+  #myh-image-gallery {
+    max-width: 1600px;
+    margin: auto;
+  }
+
+  #make-yourself-heard {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    font-family: "Exo", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: white;
+  }
+
+  #make-yourself-heard-img {
+    width: 100%;
+    margin-bottom: 40px;
+    max-width: 1100px;
+  }
+
+  .artist-img {
+    padding: 0;
+
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  .artist-overlay {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    .artist-overlay-text {
+      color: white;
+      font-family: "Nothing You Could Do", cursive;
+      font-size: 3vmin;
+      width: 70%;
+      margin: auto;
+    }
+  }
+
+  #myh-img-1 {
+    background-image: url("../../../assets/artist-img-1.jpeg");
+    background-size: auto 100%;
+    background-position: center;
+    height: 30vmax;
+
+    transition: all 0.2s ease;
+
+    #artist-overlay-1 {
+      background-color: rgba(0, 128, 0, 0.5);
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      background-size: auto 110%;
+      #artist-overlay-1 {
+        opacity: 1;
+      }
+    }
+  }
+
+  #myh-img-2 {
+    background-image: url("../../../assets/artist-img-3.jpeg");
+    background-size: auto 100%;
+    background-position: center;
+    height: 30vmax;
+
+    transition: all 0.2s ease;
+
+    #artist-overlay-2 {
+      background-color: rgba(128, 0, 128, 0.5);
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      background-size: auto 110%;
+      #artist-overlay-2 {
+        opacity: 1;
+      }
+    }
+  }
+
+  #myh-img-3 {
+    background-image: url("../../../assets/artist-img-2.jpeg");
+    background-size: auto 100%;
+    background-position: center;
+    height: 30vmax;
+
+    transition: all 0.2s ease;
+
+    #artist-overlay-3 {
+      background-color: rgba(255, 0, 0, 0.3);
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      background-size: auto 110%;
+      #artist-overlay-3 {
+        opacity: 1;
+      }
+    }
+  }
+
+  #myh-img-4 {
+    background-image: url("../../../assets/artist-img-5.jpeg");
+    background-size: auto 100%;
+    background-position: center;
+    height: 60vmax;
+
+    transition: all 0.2s ease;
+
+    #artist-overlay-4 {
+      background-color: rgba(255, 166, 0, 0.5);
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      background-size: auto 110%;
+      #artist-overlay-4 {
+        opacity: 1;
+      }
+    }
+  }
+
+  #myh-img-5 {
+    background-image: url("../../../assets/artist-img-7.jpeg");
+    background-size: auto 100%;
+    background-position: center;
+    height: 30vmax;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transition: all 0.2s ease;
+
+    #artist-overlay-5 {
+      background-color: rgba(216, 112, 147, 0.5);
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      background-size: auto 110%;
+      #artist-overlay-5 {
+        opacity: 1;
+      }
+    }
+  }
+  #myh-img-6 {
+    background-image: url("../../../assets/artist-img-6.jpeg");
+    background-size: auto 100%;
+    background-position: center;
+    height: 30vmax;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    transition: all 0.2s ease;
+
+    #artist-overlay-6 {
+      background-color: rgba(0, 195, 255, 0.4);
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+
+    &:hover {
+      background-size: auto 110%;
+      #artist-overlay-6 {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#about-section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: "Exo", sans-serif;
+
+  h2 {
+    font-size: 42px;
+    font-weight: 900;
+  }
+
+  #more-section {
+    overflow: hidden;
+    margin-top: 40px;
+
+    #more-section-header {
+      h2 {
+        font-size: 36px;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+    }
+
+    .why-icon {
+      font-size: 72px;
+      margin-bottom: 15px;
+    }
+  }
+
+  #goal-section {
+    #goal-section-header {
+      max-width: 1000px;
+      margin: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      h2 {
+        font-size: 24px;
+      }
+    }
+  }
+
+  #joinFreeButton {
+    margin: auto;
+    margin-top: 25px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(to top, white 50%, black 50%);
+    background-size: 100% 200%;
+    background-position: center top;
+    color: white;
+    font-size: 24px;
+    transition: all 0.2s ease;
+    border: 2px solid black;
+
+    &:hover {
+      cursor: pointer;
+      background-position: left bottom;
+      color: black;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+#join-section {
+  min-height: 40vh;
+  background-image: url("../../../assets/crowd-photo-1.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  #join-section-content {
+    align-self: center;
+    margin: auto;
+    color: white;
+    font-family: "Exo", sans-serif;
+    font-size: 48px;
+
+    #join-section-star-logo {
+      max-width: 160px;
+    }
+
+    #join-section-scrolling-text-container {
+      height: 48px;
+      overflow: hidden;
+
+      #join-section-scrolling-text {
+        position: relative;
+        margin: auto;
+        top: -10px;
+        animation: scrollJoinText 2s ease infinite;
+      }
+
+      @keyframes scrollJoinText {
+        0% {
+          top: -60px;
+        }
+        20% {
+          top: -10px;
+        }
+        80% {
+          top: -10px;
+        }
+        100% {
+          top: 40px;
+        }
+      }
+    }
+
+    #join-section-buttons {
+      margin-top: 25px;
+      max-width: 350px;
+      font-family: "Exo", sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+
+      #joinAsArtistButton {
+        padding: 20px;
+        color: black;
+        background-color: white;
+
+        &:hover {
+          cursor: pointer;
+        }
+        &:after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 3px;
+          display: block;
+          left: 0%;
+          bottom: 5px;
+          background: black;
+          transition: width 0.2s ease;
+          -webkit-transition: width 0.2s ease;
+        }
+
+        &:hover:after,
+        &:focus:after,
+        &:active:after {
+          width: 100%;
+        }
+      }
+
+      #joinAsFanButton {
+        padding: 20px;
+        color: white;
+        background-color: black;
+
+        &:hover {
+          cursor: pointer;
+        }
+        &:after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 3px;
+          display: block;
+          right: 0%;
+          bottom: 5px;
+          background: white;
+          transition: width 0.2s ease;
+          -webkit-transition: width 0.2s ease;
+        }
+
+        &:hover:after,
+        &:focus:after,
+        &:active:after {
+          width: 100%;
+        }
+      }
+
+      .joinButtonText {
+        &:after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 3px;
+          display: block;
+          left: 0%;
+          bottom: 5px;
+          background: black;
+          transition: width 0.2s ease;
+          -webkit-transition: width 0.2s ease;
+        }
+
+        &:hover:after,
+        &:focus:after,
+        &:active:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .top-section {
+    height: 50vh;
+  }
+
+  .top-section-bottom {
+    height: 50vh;
+    overflow: hidden;
+  }
+
+  #top-section-3 {
+    background-image: url("../../../assets/guitar-photo-1-bw.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  #logo-artists-top {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    height: 7vmin;
+  }
+
+  #logo-artists-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 7vmin;
+  }
+
+  #logo-artists-choice {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 14vmin;
+    transform: translate(17.2%, 50%);
+  }
+
+  #logo-artists-outline {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform-origin: top;
+    transform: translate(-99%, 99%) rotate(-90deg);
+    z-index: 1;
+    height: 14vmin;
+  }
+
+  #joinButtons {
+    bottom: 10vmax;
+  }
+
+  #make-yourself-heard {
+    h2 {
+      font-size: 24px;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .top-section {
+    height: 45vh;
+  }
+
+  .top-section-bottom {
+    height: 55vh;
+  }
+
+  #top-section-2 {
+    padding: 0;
+
+    #top-section-2-nested-1 {
+      height: 100%;
+      width: 50%;
+      background-image: url("../../../assets/dj-photo.jpeg");
+      background-size: cover;
+      background-position: center;
+    }
+    #top-section-2-nested-2 {
+      height: 50%;
+      width: 50%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      background-image: url("../../../assets/fan-photo-1.jpeg");
+      background-size: cover;
+      background-position: center;
+    }
+    #top-section-2-nested-3 {
+      height: 50%;
+      width: 50%;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background-image: url("../../../assets/rocker-photo-1.jpeg");
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  #top-section-3 {
+    background-image: url("../../../assets/guitar-photo-1-bw.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  #logo-artists-top {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    width: 50vmin;
+    max-width: 100%;
+  }
+
+  #logo-artists-bottom {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 50vmin;
+    max-width: 100%;
+  }
+
+  #logo-artists-choice {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(0%);
+    width: 50vmin;
+    max-width: 100%;
+  }
+
+  #logo-artists-outline {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform-origin: top;
+    transform: translate(-50%, 99%) rotate(-90deg);
+    z-index: 1;
+    width: 50vmin;
+    max-width: 100%;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  #myh-section {
+    .artist-overlay {
+      .artist-overlay-text {
+        font-size: 26px;
+      }
+    }
+
+    #myh-img-1 {
+      background-image: url("../../../assets/artist-img-1.jpeg");
+      background-size: auto 126%;
+      background-position: center;
+      height: 30vmax;
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-size: auto 136%;
+      }
+    }
+
+    #myh-img-2 {
+      background-image: url("../../../assets/artist-img-3.jpeg");
+      background-size: 100% auto;
+      background-position: center;
+      height: 30vmax;
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-size: 110% auto;
+      }
+    }
+
+    #myh-img-3 {
+      background-image: url("../../../assets/artist-img-2.jpeg");
+      background-size: 100% auto;
+      background-position: center;
+      height: 30vmax;
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-size: 110% auto;
+      }
+    }
+
+    #myh-img-4 {
+      background-image: url("../../../assets/artist-img-5.jpeg");
+      background-size: auto 110%;
+      background-position: center;
+      height: 60vmax;
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-size: auto 120%;
+      }
+    }
+
+    #myh-img-5 {
+      background-image: url("../../../assets/artist-img-7.jpeg");
+      background-size: auto 110%;
+      background-position: center;
+      height: 30vmax;
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-size: auto 120%;
+      }
+    }
+
+    #myh-img-6 {
+      background-image: url("../../../assets/artist-img-6.jpeg");
+      background-size: auto 110%;
+      background-position: center;
+      height: 30vmax;
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-size: auto 120%;
+      }
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  #myh-section {
+    #myh-image-gallery {
+      margin-bottom: 80px;
+    }
+
+    .artist-overlay {
+      .artist-overlay-text {
+        font-size: 28px;
+      }
+    }
+
+    #myh-img-1 {
+      background-image: url("../../../assets/artist-img-1.jpeg");
+      background-size: auto 126%;
+      background-position: center;
+      height: 30vh;
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-size: auto 136%;
+      }
+    }
+
+    #myh-img-2 {
+      background-image: url("../../../assets/artist-img-3.jpeg");
+      background-size: 100% auto;
+      background-position: 50% 45%;
+      height: 30vh;
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-size: 110% auto;
+      }
+    }
+
+    #myh-img-3 {
+      background-image: url("../../../assets/artist-img-2.jpeg");
+      background-size: 100% auto;
+      background-position: center;
+      height: 30vh;
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-size: 110% auto;
+      }
+    }
+
+    #myh-img-4 {
+      background-image: url("../../../assets/artist-img-5.jpeg");
+      background-size: 110% auto;
+      background-position: center;
+      height: 60vh;
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-size: 120% auto;
+      }
+    }
+
+    #myh-img-5 {
+      background-image: url("../../../assets/artist-img-7.jpeg");
+      background-size: auto 110%;
+      background-position: center;
+      height: 30vh;
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-size: auto 120%;
+      }
+    }
+
+    #myh-img-6 {
+      background-image: url("../../../assets/artist-img-6.jpeg");
+      background-size: auto 110%;
+      background-position: center;
+      height: 30vh;
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-size: auto 120%;
+      }
+    }
+  }
+}

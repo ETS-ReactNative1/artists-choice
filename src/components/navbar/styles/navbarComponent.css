@@ -1,0 +1,90 @@
+#navbar-logo {
+  height: 50px;
+}
+
+#topNavbar {
+  -webkit-transition: all 0.75s ease;
+  transition: all 0.75s ease;
+}
+
+.top-navbar {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+.showNav {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.nav-item {
+  font-family: "Exo", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  position: relative;
+  margin-right: 10px;
+}
+
+.nav-item:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  left: 0%;
+  bottom: 5px;
+  background: black;
+  transition: width 0.2s ease;
+  -webkit-transition: width 0.2s ease;
+}
+
+.nav-item:hover:after, .nav-item:focus:after, .nav-item:active:after {
+  width: 100%;
+}
+
+#secondaryNavbar {
+  list-style-type: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 5;
+  padding: 20px;
+}
+
+#secondaryNavbar ul {
+  padding: 0;
+}
+
+#secondaryNavbar ul li {
+  color: black;
+  font-size: 20px;
+  text-align: right;
+  list-style-type: none;
+  margin: 2.25vh;
+  font-family: "Exo", sans-serif;
+  font-weight: 700;
+  position: relative;
+  padding-left: 50px;
+}
+
+#secondaryNavbar ul li:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  right: 0%;
+  bottom: -3px;
+  background: black;
+  transition: width 0.2s ease;
+  -webkit-transition: width 0.2s ease;
+}
+
+#secondaryNavbar ul li:hover:after, #secondaryNavbar ul li:focus:after, #secondaryNavbar ul li:active:after {
+  width: 100%;
+}
+
+#secondaryNavbar ul li:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=navbarComponent.css.map */

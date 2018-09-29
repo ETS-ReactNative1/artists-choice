@@ -1,0 +1,818 @@
+#top-section-1 {
+  background-color: white;
+}
+
+#top-section-2 {
+  background-color: #bbbbbb;
+}
+
+#top-section-3 {
+  background-color: #bbbbbb;
+}
+
+#top-section-4 {
+  background-color: white;
+}
+
+#logo-star-top {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 38vmin;
+  max-width: 100%;
+}
+
+#social-icons-top {
+  position: relative;
+  top: 0;
+  left: 0;
+  text-align: left;
+  padding: 20px;
+}
+
+#social-icons-top .social-icon {
+  font-size: 40px;
+  margin-right: 20px;
+}
+
+#joinButtons {
+  position: absolute;
+  bottom: 5vmax;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  max-width: 350px;
+  font-family: "Exo", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+#joinButtons #joinAsArtistButton {
+  padding: 20px;
+  color: black;
+  background-color: white;
+}
+
+#joinButtons #joinAsArtistButton:hover {
+  cursor: pointer;
+}
+
+#joinButtons #joinAsArtistButton:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  left: 0%;
+  bottom: 5px;
+  background: black;
+  transition: width 0.2s ease;
+  -webkit-transition: width 0.2s ease;
+}
+
+#joinButtons #joinAsArtistButton:hover:after, #joinButtons #joinAsArtistButton:focus:after, #joinButtons #joinAsArtistButton:active:after {
+  width: 100%;
+}
+
+#joinButtons #joinAsFanButton {
+  padding: 20px;
+  color: white;
+  background-color: black;
+}
+
+#joinButtons #joinAsFanButton:hover {
+  cursor: pointer;
+}
+
+#joinButtons #joinAsFanButton:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  right: 0%;
+  bottom: 5px;
+  background: white;
+  transition: width 0.2s ease;
+  -webkit-transition: width 0.2s ease;
+}
+
+#joinButtons #joinAsFanButton:hover:after, #joinButtons #joinAsFanButton:focus:after, #joinButtons #joinAsFanButton:active:after {
+  width: 100%;
+}
+
+#joinButtons .joinButtonText:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  left: 0%;
+  bottom: 5px;
+  background: black;
+  transition: width 0.2s ease;
+  -webkit-transition: width 0.2s ease;
+}
+
+#joinButtons .joinButtonText:hover:after, #joinButtons .joinButtonText:focus:after, #joinButtons .joinButtonText:active:after {
+  width: 100%;
+}
+
+#myh-section {
+  background-color: black;
+  overflow: hidden;
+}
+
+#myh-section #myh-image-gallery {
+  max-width: 1600px;
+  margin: auto;
+}
+
+#myh-section #make-yourself-heard {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  font-family: "Exo", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: white;
+}
+
+#myh-section #make-yourself-heard-img {
+  width: 100%;
+  margin-bottom: 40px;
+  max-width: 1100px;
+}
+
+#myh-section .artist-img {
+  padding: 0;
+}
+
+#myh-section .artist-img:hover {
+  cursor: default;
+}
+
+#myh-section .artist-overlay {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#myh-section .artist-overlay .artist-overlay-text {
+  color: white;
+  font-family: "Nothing You Could Do", cursive;
+  font-size: 3vmin;
+  width: 70%;
+  margin: auto;
+}
+
+#myh-section #myh-img-1 {
+  background-image: url("../../../assets/artist-img-1.jpeg");
+  background-size: auto 100%;
+  background-position: center;
+  height: 30vmax;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#myh-section #myh-img-1 #artist-overlay-1 {
+  background-color: rgba(0, 128, 0, 0.5);
+  opacity: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#myh-section #myh-img-1:hover {
+  background-size: auto 110%;
+}
+
+#myh-section #myh-img-1:hover #artist-overlay-1 {
+  opacity: 1;
+}
+
+#myh-section #myh-img-2 {
+  background-image: url("../../../assets/artist-img-3.jpeg");
+  background-size: auto 100%;
+  background-position: center;
+  height: 30vmax;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#myh-section #myh-img-2 #artist-overlay-2 {
+  background-color: rgba(128, 0, 128, 0.5);
+  opacity: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#myh-section #myh-img-2:hover {
+  background-size: auto 110%;
+}
+
+#myh-section #myh-img-2:hover #artist-overlay-2 {
+  opacity: 1;
+}
+
+#myh-section #myh-img-3 {
+  background-image: url("../../../assets/artist-img-2.jpeg");
+  background-size: auto 100%;
+  background-position: center;
+  height: 30vmax;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#myh-section #myh-img-3 #artist-overlay-3 {
+  background-color: rgba(255, 0, 0, 0.3);
+  opacity: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#myh-section #myh-img-3:hover {
+  background-size: auto 110%;
+}
+
+#myh-section #myh-img-3:hover #artist-overlay-3 {
+  opacity: 1;
+}
+
+#myh-section #myh-img-4 {
+  background-image: url("../../../assets/artist-img-5.jpeg");
+  background-size: auto 100%;
+  background-position: center;
+  height: 60vmax;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#myh-section #myh-img-4 #artist-overlay-4 {
+  background-color: rgba(255, 166, 0, 0.5);
+  opacity: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#myh-section #myh-img-4:hover {
+  background-size: auto 110%;
+}
+
+#myh-section #myh-img-4:hover #artist-overlay-4 {
+  opacity: 1;
+}
+
+#myh-section #myh-img-5 {
+  background-image: url("../../../assets/artist-img-7.jpeg");
+  background-size: auto 100%;
+  background-position: center;
+  height: 30vmax;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#myh-section #myh-img-5 #artist-overlay-5 {
+  background-color: rgba(216, 112, 147, 0.5);
+  opacity: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#myh-section #myh-img-5:hover {
+  background-size: auto 110%;
+}
+
+#myh-section #myh-img-5:hover #artist-overlay-5 {
+  opacity: 1;
+}
+
+#myh-section #myh-img-6 {
+  background-image: url("../../../assets/artist-img-6.jpeg");
+  background-size: auto 100%;
+  background-position: center;
+  height: 30vmax;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#myh-section #myh-img-6 #artist-overlay-6 {
+  background-color: rgba(0, 195, 255, 0.4);
+  opacity: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+#myh-section #myh-img-6:hover {
+  background-size: auto 110%;
+}
+
+#myh-section #myh-img-6:hover #artist-overlay-6 {
+  opacity: 1;
+}
+
+#about-section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: "Exo", sans-serif;
+}
+
+#about-section h2 {
+  font-size: 42px;
+  font-weight: 900;
+}
+
+#about-section #more-section {
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+#about-section #more-section #more-section-header h2 {
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+
+#about-section #more-section .why-icon {
+  font-size: 72px;
+  margin-bottom: 15px;
+}
+
+#about-section #goal-section #goal-section-header {
+  max-width: 1000px;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#about-section #goal-section #goal-section-header h2 {
+  font-size: 24px;
+}
+
+#about-section #joinFreeButton {
+  margin: auto;
+  margin-top: 25px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
+  border: none;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, white), color-stop(50%, black));
+  background: linear-gradient(to top, white 50%, black 50%);
+  background-size: 100% 200%;
+  background-position: center top;
+  color: white;
+  font-size: 24px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  border: 2px solid black;
+}
+
+#about-section #joinFreeButton:hover {
+  cursor: pointer;
+  background-position: left bottom;
+  color: black;
+}
+
+#about-section #joinFreeButton:focus {
+  outline: none;
+}
+
+#join-section {
+  min-height: 40vh;
+  background-image: url("../../../assets/crowd-photo-1.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#join-section #join-section-content {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: auto;
+  color: white;
+  font-family: "Exo", sans-serif;
+  font-size: 48px;
+}
+
+#join-section #join-section-content #join-section-star-logo {
+  max-width: 160px;
+}
+
+#join-section #join-section-content #join-section-scrolling-text-container {
+  height: 48px;
+  overflow: hidden;
+}
+
+#join-section #join-section-content #join-section-scrolling-text-container #join-section-scrolling-text {
+  position: relative;
+  margin: auto;
+  top: -10px;
+  -webkit-animation: scrollJoinText 2s ease infinite;
+          animation: scrollJoinText 2s ease infinite;
+}
+
+@-webkit-keyframes scrollJoinText {
+  0% {
+    top: -60px;
+  }
+  20% {
+    top: -10px;
+  }
+  80% {
+    top: -10px;
+  }
+  100% {
+    top: 40px;
+  }
+}
+
+@keyframes scrollJoinText {
+  0% {
+    top: -60px;
+  }
+  20% {
+    top: -10px;
+  }
+  80% {
+    top: -10px;
+  }
+  100% {
+    top: 40px;
+  }
+}
+
+#join-section #join-section-content #join-section-buttons {
+  margin-top: 25px;
+  max-width: 350px;
+  font-family: "Exo", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+#join-section #join-section-content #join-section-buttons #joinAsArtistButton {
+  padding: 20px;
+  color: black;
+  background-color: white;
+}
+
+#join-section #join-section-content #join-section-buttons #joinAsArtistButton:hover {
+  cursor: pointer;
+}
+
+#join-section #join-section-content #join-section-buttons #joinAsArtistButton:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  left: 0%;
+  bottom: 5px;
+  background: black;
+  transition: width 0.2s ease;
+  -webkit-transition: width 0.2s ease;
+}
+
+#join-section #join-section-content #join-section-buttons #joinAsArtistButton:hover:after, #join-section #join-section-content #join-section-buttons #joinAsArtistButton:focus:after, #join-section #join-section-content #join-section-buttons #joinAsArtistButton:active:after {
+  width: 100%;
+}
+
+#join-section #join-section-content #join-section-buttons #joinAsFanButton {
+  padding: 20px;
+  color: white;
+  background-color: black;
+}
+
+#join-section #join-section-content #join-section-buttons #joinAsFanButton:hover {
+  cursor: pointer;
+}
+
+#join-section #join-section-content #join-section-buttons #joinAsFanButton:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  right: 0%;
+  bottom: 5px;
+  background: white;
+  transition: width 0.2s ease;
+  -webkit-transition: width 0.2s ease;
+}
+
+#join-section #join-section-content #join-section-buttons #joinAsFanButton:hover:after, #join-section #join-section-content #join-section-buttons #joinAsFanButton:focus:after, #join-section #join-section-content #join-section-buttons #joinAsFanButton:active:after {
+  width: 100%;
+}
+
+#join-section #join-section-content #join-section-buttons .joinButtonText:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  left: 0%;
+  bottom: 5px;
+  background: black;
+  transition: width 0.2s ease;
+  -webkit-transition: width 0.2s ease;
+}
+
+#join-section #join-section-content #join-section-buttons .joinButtonText:hover:after, #join-section #join-section-content #join-section-buttons .joinButtonText:focus:after, #join-section #join-section-content #join-section-buttons .joinButtonText:active:after {
+  width: 100%;
+}
+
+@media (max-width: 575.98px) {
+  .top-section {
+    height: 50vh;
+  }
+  .top-section-bottom {
+    height: 50vh;
+    overflow: hidden;
+  }
+  #top-section-3 {
+    background-image: url("../../../assets/guitar-photo-1-bw.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  #logo-artists-top {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    height: 7vmin;
+  }
+  #logo-artists-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 7vmin;
+  }
+  #logo-artists-choice {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 14vmin;
+    -webkit-transform: translate(17.2%, 50%);
+            transform: translate(17.2%, 50%);
+  }
+  #logo-artists-outline {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    -webkit-transform: translate(-99%, 99%) rotate(-90deg);
+            transform: translate(-99%, 99%) rotate(-90deg);
+    z-index: 1;
+    height: 14vmin;
+  }
+  #joinButtons {
+    bottom: 10vmax;
+  }
+  #make-yourself-heard h2 {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 576px) {
+  .top-section {
+    height: 45vh;
+  }
+  .top-section-bottom {
+    height: 55vh;
+  }
+  #top-section-2 {
+    padding: 0;
+  }
+  #top-section-2 #top-section-2-nested-1 {
+    height: 100%;
+    width: 50%;
+    background-image: url("../../../assets/dj-photo.jpeg");
+    background-size: cover;
+    background-position: center;
+  }
+  #top-section-2 #top-section-2-nested-2 {
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-image: url("../../../assets/fan-photo-1.jpeg");
+    background-size: cover;
+    background-position: center;
+  }
+  #top-section-2 #top-section-2-nested-3 {
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-image: url("../../../assets/rocker-photo-1.jpeg");
+    background-size: cover;
+    background-position: center;
+  }
+  #top-section-3 {
+    background-image: url("../../../assets/guitar-photo-1-bw.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  #logo-artists-top {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    width: 50vmin;
+    max-width: 100%;
+  }
+  #logo-artists-bottom {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 50vmin;
+    max-width: 100%;
+  }
+  #logo-artists-choice {
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    width: 50vmin;
+    max-width: 100%;
+  }
+  #logo-artists-outline {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    -webkit-transform: translate(-50%, 99%) rotate(-90deg);
+            transform: translate(-50%, 99%) rotate(-90deg);
+    z-index: 1;
+    width: 50vmin;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  #myh-section .artist-overlay .artist-overlay-text {
+    font-size: 26px;
+  }
+  #myh-section #myh-img-1 {
+    background-image: url("../../../assets/artist-img-1.jpeg");
+    background-size: auto 126%;
+    background-position: center;
+    height: 30vmax;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  #myh-section #myh-img-1:hover {
+    background-size: auto 136%;
+  }
+  #myh-section #myh-img-2 {
+    background-image: url("../../../assets/artist-img-3.jpeg");
+    background-size: 100% auto;
+    background-position: center;
+    height: 30vmax;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  #myh-section #myh-img-2:hover {
+    background-size: 110% auto;
+  }
+  #myh-section #myh-img-3 {
+    background-image: url("../../../assets/artist-img-2.jpeg");
+    background-size: 100% auto;
+    background-position: center;
+    height: 30vmax;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  #myh-section #myh-img-3:hover {
+    background-size: 110% auto;
+  }
+  #myh-section #myh-img-4 {
+    background-image: url("../../../assets/artist-img-5.jpeg");
+    background-size: auto 110%;
+    background-position: center;
+    height: 60vmax;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  #myh-section #myh-img-4:hover {
+    background-size: auto 120%;
+  }
+  #myh-section #myh-img-5 {
+    background-image: url("../../../assets/artist-img-7.jpeg");
+    background-size: auto 110%;
+    background-position: center;
+    height: 30vmax;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  #myh-section #myh-img-5:hover {
+    background-size: auto 120%;
+  }
+  #myh-section #myh-img-6 {
+    background-image: url("../../../assets/artist-img-6.jpeg");
+    background-size: auto 110%;
+    background-position: center;
+    height: 30vmax;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  #myh-section #myh-img-6:hover {
+    background-size: auto 120%;
+  }
+}
+
+@media (min-width: 1200px) {
+  #myh-section #myh-image-gallery {
+    margin-bottom: 80px;
+  }
+  #myh-section .artist-overlay .artist-overlay-text {
+    font-size: 28px;
+  }
+  #myh-section #myh-img-1 {
+    background-image: url("../../../assets/artist-img-1.jpeg");
+    background-size: auto 126%;
+    background-position: center;
+    height: 30vh;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  #myh-section #myh-img-1:hover {
+    background-size: auto 136%;
+  }
+  #myh-section #myh-img-2 {
+    background-image: url("../../../assets/artist-img-3.jpeg");
+    background-size: 100% auto;
+    background-position: 50% 45%;
+    height: 30vh;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  #myh-section #myh-img-2:hover {
+    background-size: 110% auto;
+  }
+  #myh-section #myh-img-3 {
+    background-image: url("../../../assets/artist-img-2.jpeg");
+    background-size: 100% auto;
+    background-position: center;
+    height: 30vh;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  #myh-section #myh-img-3:hover {
+    background-size: 110% auto;
+  }
+  #myh-section #myh-img-4 {
+    background-image: url("../../../assets/artist-img-5.jpeg");
+    background-size: 110% auto;
+    background-position: center;
+    height: 60vh;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  #myh-section #myh-img-4:hover {
+    background-size: 120% auto;
+  }
+  #myh-section #myh-img-5 {
+    background-image: url("../../../assets/artist-img-7.jpeg");
+    background-size: auto 110%;
+    background-position: center;
+    height: 30vh;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  #myh-section #myh-img-5:hover {
+    background-size: auto 120%;
+  }
+  #myh-section #myh-img-6 {
+    background-image: url("../../../assets/artist-img-6.jpeg");
+    background-size: auto 110%;
+    background-position: center;
+    height: 30vh;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  #myh-section #myh-img-6:hover {
+    background-size: auto 120%;
+  }
+}
+/*# sourceMappingURL=homepageComponent.css.map */
