@@ -169,7 +169,10 @@ class ShowsComponent extends Component {
           {this.state.showsList.length > 0 ? (
             <ul id="shows-list">
               {this.state.showsList.map(event => (
-                <li key={event.eventName} className="showItem">
+                <li
+                  key={this.state.showsList.indexOf(event)}
+                  className="showItem"
+                >
                   <img
                     className="showImage"
                     src={
