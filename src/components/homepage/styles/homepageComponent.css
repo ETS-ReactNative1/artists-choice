@@ -55,6 +55,7 @@
 
 #joinButtons #joinAsArtistButton:hover {
   cursor: pointer;
+  text-decoration: none;
 }
 
 #joinButtons #joinAsArtistButton:after {
@@ -82,6 +83,7 @@
 
 #joinButtons #joinAsFanButton:hover {
   cursor: pointer;
+  text-decoration: none;
 }
 
 #joinButtons #joinAsFanButton:after {

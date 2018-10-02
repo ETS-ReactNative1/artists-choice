@@ -91,7 +91,12 @@
   position: relative;
 }
 
-#shows-section .showItem .showImage {
+#shows-section .showItem #showImageContainer {
+  background-image: url("../../../../../assets/placeholder-music.png");
+  background-position: center;
+  background-size: cover;
+  width: 140px;
+  height: 140px;
   float: left;
   margin-right: 10px;
 }

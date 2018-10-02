@@ -1,0 +1,21 @@
+#join-page-container {
+  min-height: 100vh;
+  background-image: url("../../../../assets/crowd-photo-2.jpeg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-content: center;
+}
+
+#join-page-inner {
+  margin: auto;
+  width: 100%;
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#star-logo {
+  width: 100px;
+}

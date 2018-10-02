@@ -33,7 +33,7 @@ class ShowsComponent extends Component {
       let showsList = [];
       searchByMetroAreaID(res.id).then(res => {
         console.log(res);
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 5; i++) {
           let show = {
             eventName: res[i].performance[0].displayName,
             venueName: res[i].venue.displayName,
@@ -80,7 +80,7 @@ class ShowsComponent extends Component {
     console.log(loc);
     searchByMetroAreaID(loc.metroArea.id).then(res => {
       console.log(res);
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 5; i++) {
         let show = {
           eventName: res[i].performance[0].displayName,
           venueName: res[i].venue.displayName,
@@ -173,14 +173,16 @@ class ShowsComponent extends Component {
                   key={this.state.showsList.indexOf(event)}
                   className="showItem"
                 >
-                  <img
-                    className="showImage"
-                    src={
-                      "http://images.sk-static.com/images/media/profile_images/artists/" +
-                      event.eventHeadlinerID +
-                      "/large_avatar"
-                    }
-                  />
+                  <div id="showImageContainer">
+                    <img
+                      className="showImage"
+                      src={
+                        "http://images.sk-static.com/images/media/profile_images/artists/" +
+                        event.eventHeadlinerID +
+                        "/large_avatar"
+                      }
+                    />
+                  </div>
                   <div className="showDateTime">{event.eventDate}</div>
                   <div className="showName">{event.eventName}</div>
                   <div className="showVenue">{event.venueName}</div>

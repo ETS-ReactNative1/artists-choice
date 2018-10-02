@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { Link } from "react-router-dom";
+
 import "./styles/homepageComponent.css";
 
 import NavbarComponent from "../navbar/navbarComponent";
@@ -11,6 +13,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import $ from "jquery";
 
+import { WOW } from "wowjs";
+
 class HomepageTopSection extends Component {
   state = {};
 
@@ -18,6 +22,10 @@ class HomepageTopSection extends Component {
     this.startFlicker();
     $("#join-section-scrolling-text").innerText = "";
     this.scrollText();
+
+    new WOW({
+      live: false
+    }).init();
   }
 
   startFlicker() {
@@ -138,12 +146,12 @@ class HomepageTopSection extends Component {
             data-wow-delay="1s"
             data-wow-duration="0.5s"
           >
-            <div id="joinAsArtistButton" className="col">
+            <Link id="joinAsArtistButton" className="col" to={"/join/artist"}>
               <span className="joinButtonText">Join as Artist</span>
-            </div>
-            <div id="joinAsFanButton" className="col">
+            </Link>
+            <Link id="joinAsFanButton" className="col" to={"/join/fan"}>
               <span className="joinButtonText">Join as Fan</span>
-            </div>
+            </Link>
           </div>
         </div>
         <div id="myh-section" className="row">
