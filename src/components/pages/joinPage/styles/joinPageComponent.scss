@@ -19,3 +19,27 @@
 #star-logo {
   width: 100px;
 }
+
+.form-group {
+  margin-top: 25px;
+  .invalid-field-text {
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    display: none;
+  }
+}
+
+.invalid {
+  input {
+    border: 2px solid red;
+  }
+
+  .invalid-field-text {
+    display: block;
+  }
+}
+
+#signup-button {
+  margin-top: 20px;
+}
