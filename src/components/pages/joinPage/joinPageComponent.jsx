@@ -2,9 +2,13 @@ import React, { Component } from "react";
 
 import "./styles/joinPageComponent.css";
 
+import fire from "../../../config/fire";
+
 import validator from "validator";
 
 import $ from "jquery";
+
+import { WOW } from "wowjs";
 
 class JoinPageComponent extends Component {
   state = {
@@ -14,6 +18,10 @@ class JoinPageComponent extends Component {
   };
 
   componentDidMount() {
+    new WOW({
+      live: false
+    }).init();
+
     //Set initial user type in state based on route param
     const { userType } = this.props.match.params;
     this.setState({ userType }, () => {
@@ -38,7 +46,7 @@ class JoinPageComponent extends Component {
 
     this.validateEmail(this.state.email) &&
     this.validatePassword(this.state.password)
-      ? this.createNewUser()
+      ? this.createNewUser(this.state.email, this.state.password)
       : null;
   };
 
@@ -87,18 +95,20 @@ class JoinPageComponent extends Component {
     }
   }
 
-  createNewUser() {
+  createNewUser(email, password) {
     console.log("create new user...");
+    fire
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch(error => {
+        //Handle errors here
+        console.log(error);
+      });
   }
-
-  submitForm = () => {
-    console.log("process the form...");
-    this.createNewUser();
-  };
 
   render() {
     return (
-      <div id="join-page-container">
+      <div id="join-page-container" className="wow fadeIn">
         <div id="join-page-inner">
           <div id="join-as-artist" className="col">
             <img
@@ -125,7 +135,7 @@ class JoinPageComponent extends Component {
               <div id="password-form-group" className="form-group">
                 <label htmlFor="password">Password</label>
                 <input
-                  type="text"
+                  type="password"
                   className="form-control"
                   id="password"
                   aria-describedby="password"
