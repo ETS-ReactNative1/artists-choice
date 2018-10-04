@@ -19,3 +19,12 @@ export function dbAddUser(user, userType) {
 export function dbGetUser(userID) {
   return db.collection("users").doc(userID);
 }
+
+export function dbSubmitArtistDetails(
+  artistName,
+  artistGenre,
+  artistCountry,
+  artistZipcode
+) {
+  console.log(artistName, artistGenre, artistCountry, artistZipcode);
+}

@@ -2,36 +2,19 @@ import React, { Component } from "react";
 
 import fire from "../../../config/fire";
 
-import { dbGetUser } from "../../services/dbService";
+import { dbSubmitArtistDetails } from "../../services/dbService";
 
 import "./styles/finishSignupPageComponent.css";
 
 class FinishSignupPageComponent extends Component {
   state = {
-    userType: "",
     artistName: "",
     artistGenre: "",
     artistCountry: "",
     artistZipcode: ""
   };
 
-  componentDidMount() {
-    fire.auth().onAuthStateChanged(() => {
-      if (fire.auth().currentUser !== null) {
-        dbGetUser(fire.auth().currentUser.uid)
-          .get()
-          .then(user => {
-            console.log(user.data());
-            this.setState({ userType: user.data().userType });
-            user.data().userName !== null
-              ? this.setState({ userName: user.data().userName })
-              : null;
-          });
-      } else {
-        console.log("no user signed in.");
-      }
-    });
-  }
+  componentDidMount() {}
 
   handleNameChange = e => {
     this.setState({ artistName: e.target.value }, () => {
@@ -57,6 +40,14 @@ class FinishSignupPageComponent extends Component {
     });
   };
 
+  validateName(name) {}
+
+  validateGenre(genre) {}
+
+  validateCountry(country) {}
+
+  validateZipcode(zipcode) {}
+
   continue = e => {
     e.preventDefault(); //Prevent default submit behaviour
 
@@ -64,7 +55,7 @@ class FinishSignupPageComponent extends Component {
     this.validateGenre(this.state.artistGenre) &&
     this.validateCountry(this.state.artistCountry) &&
     this.validateZipcode(this.state.artistZipcode)
-      ? this.submitArtistDetails(
+      ? dbSubmitArtistDetails(
           this.state.artistName,
           this.state.artistGenre,
           this.state.artistCountry,
@@ -76,8 +67,7 @@ class FinishSignupPageComponent extends Component {
   render() {
     return (
       <div>
-        {this.state.userType === "artist" &&
-        this.state.userName === undefined ? (
+        {this.props.userType === "artist" ? (
           <div id="artist-info-form-container">
             <div id="artist-info-form-inner">
               <img
@@ -93,7 +83,7 @@ class FinishSignupPageComponent extends Component {
                     id="name"
                     aria-describedby="artistName"
                     placeholder="Artist or Band Name *"
-                    value={this.state.email}
+                    value={this.state.artistName}
                     onChange={this.handleNameChange}
                   />
                 </div>
@@ -102,7 +92,7 @@ class FinishSignupPageComponent extends Component {
                     className="form-control"
                     id="genre"
                     aria-describedby="artistGenre"
-                    value={this.state.genre}
+                    value={this.state.artistGenre}
                     onChange={this.handleGenreChange}
                   >
                     <option selected>Primary Genre *</option>
@@ -159,7 +149,7 @@ class FinishSignupPageComponent extends Component {
                     className="form-control"
                     id="country"
                     aria-describedby="artistCountry"
-                    value={this.state.country}
+                    value={this.state.artistCountry}
                     onChange={this.handleCountryChange}
                   >
                     <option value="AF">Afghanistan</option>
@@ -417,7 +407,7 @@ class FinishSignupPageComponent extends Component {
                     id="zipcode"
                     aria-describedby="zipCode"
                     placeholder="ZIP/Postalcode *"
-                    value={this.state.zipCode}
+                    value={this.state.artistZipcode}
                     onChange={this.handleZipCodeChange}
                   />
                 </div>
@@ -431,9 +421,8 @@ class FinishSignupPageComponent extends Component {
               </form>
             </div>
           </div>
-        ) : this.state.userType === "fan" &&
-        this.state.userName === undefined ? (
-          <div userName={this.state.userName} />
+        ) : this.props.userType === "fan" ? (
+          <div />
         ) : (
           <div id="placeholder">
             <img
