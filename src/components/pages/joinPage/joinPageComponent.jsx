@@ -107,7 +107,10 @@ class JoinPageComponent extends Component {
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(dbAddUser(fire.auth().currentUser, this.state.userType)) //Add user to DB
+      .then(() => {
+        fire.auth().signInWithEmailAndPassword(email, password); //Sign in with new credentials
+        dbAddUser(fire.auth().currentUser, this.state.userType);
+      })
       .catch(error => {
         //Handle errors here
         console.log(error);

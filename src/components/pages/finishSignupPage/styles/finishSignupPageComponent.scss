@@ -1,0 +1,23 @@
+#placeholder {
+  width: 100%;
+  height: 100vh;
+  #loading-blips {
+    width: 80px;
+    margin-top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+#artist-info-form-container {
+  height: 100vh;
+  width: 100%;
+  background-color: lightgrey;
+  display: flex;
+  align-content: center;
+
+  #artist-info-form-inner {
+    width: 100%;
+    margin: auto;
+    max-width: 400px;
+  }
+}

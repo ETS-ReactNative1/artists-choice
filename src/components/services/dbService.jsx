@@ -10,5 +10,12 @@ export function dbAddUser(user, userType) {
       userID: user.uid,
       userType: userType,
       email: user.email
+    })
+    .then(() => {
+      window.location = "/finishSignup";
     });
+}
+
+export function dbGetUser(userID) {
+  return db.collection("users").doc(userID);
 }
