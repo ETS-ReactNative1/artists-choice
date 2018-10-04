@@ -4,7 +4,9 @@ import fire from "../../../config/fire";
 
 import { dbGetUser } from "../../services/dbService";
 
-import FinishSignupPageComponent from "../finishSignupPage/finishSignupPageComponent";
+import ArtistProfilePageComponent from "./artistProfilePage/artistProfilePageComponent";
+import FanProfilePageComponent from "./fanProfilePage/fanProfilePageComponent";
+import FinishSignupPageComponent from "./finishSignupPage/finishSignupPageComponent";
 
 class ProfilePageComponent extends Component {
   state = {
@@ -32,7 +34,7 @@ class ProfilePageComponent extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wow fadeIn">
         {this.state.userName === undefined ? (
           <FinishSignupPageComponent userType={this.state.userType} />
         ) : null}

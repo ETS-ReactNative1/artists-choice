@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import HomepageComponent from "./homepage/homepageComponent";
 import JoinPageComponent from "./pages/joinPage/joinPageComponent";
@@ -11,14 +11,13 @@ class RouterComponent extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Route path="" component={HomepageComponent} exact />
+        <Switch>
           <Route path="/join" component={JoinPageComponent} exact />
           <Route path="/join/:userType" component={JoinPageComponent} />
           <Route path="/finishSignup" component={ProfilePageComponent} exact />
-          <Route path="/artists/:user" component={ProfilePageComponent} />
-          <Route path="/fans/:user" component={ProfilePageComponent} />
-        </div>
+          <Route path="/:user" component={ProfilePageComponent} />
+          <Route path="" component={HomepageComponent} exact />
+        </Switch>
       </Router>
     );
   }

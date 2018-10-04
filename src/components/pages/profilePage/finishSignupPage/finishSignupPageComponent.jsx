@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 
-import fire from "../../../config/fire";
-
-import { dbSubmitArtistDetails } from "../../services/dbService";
+import { dbSubmitArtistDetails } from "../../../services/dbService";
 
 import "./styles/finishSignupPageComponent.css";
+
+import validator from "validator";
+
+import $ from "jquery";
+
+import { WOW } from "wowjs";
 
 class FinishSignupPageComponent extends Component {
   state = {
@@ -14,7 +18,12 @@ class FinishSignupPageComponent extends Component {
     artistZipcode: ""
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    //Init WOW animations
+    new WOW({
+      live: false
+    }).init();
+  }
 
   handleNameChange = e => {
     this.setState({ artistName: e.target.value }, () => {
@@ -40,13 +49,39 @@ class FinishSignupPageComponent extends Component {
     });
   };
 
-  validateName(name) {}
+  validateName(name) {
+    if (validator.isLength(name, { min: 2 })) {
+      $("#name-form-group").removeClass("invalid");
+      return true;
+    } else {
+      $("#name-form-group").addClass("invalid");
+    }
+  }
 
-  validateGenre(genre) {}
+  validateGenre(genre) {
+    if ((genre === "") | (genre === "Primary Genre *")) {
+      $("#genre-form-group").addClass("invalid");
+      return false;
+    } else {
+      $("#genre-form-group").removeClass("invalid");
+      return true;
+    }
+  }
 
-  validateCountry(country) {}
+  validateCountry(country) {
+    return true;
+  }
 
-  validateZipcode(zipcode) {}
+  validateZipcode(zipcode) {
+    const zipcodePattern = /^\d{5}$|^\d{5}-\d{4}$/;
+    if (zipcodePattern.test(zipcode)) {
+      $("#zipcode-form-group").removeClass("invalid");
+      return true;
+    } else {
+      $("#zipcode-form-group").addClass("invalid");
+      return false;
+    }
+  }
 
   continue = e => {
     e.preventDefault(); //Prevent default submit behaviour
@@ -66,13 +101,13 @@ class FinishSignupPageComponent extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wow fadeIn">
         {this.props.userType === "artist" ? (
           <div id="artist-info-form-container">
             <div id="artist-info-form-inner">
               <img
                 id="star-logo"
-                src={require("../../../assets/logo_star.svg")}
+                src={require("../../../../assets/logo_star.svg")}
               />
               <h1>Artist Details</h1>
               <form className="artist-signup-form">
@@ -86,7 +121,11 @@ class FinishSignupPageComponent extends Component {
                     value={this.state.artistName}
                     onChange={this.handleNameChange}
                   />
+                  <div id="invalid-email-text" className="invalid-field-text">
+                    Name length must be at least 2 characters.
+                  </div>
                 </div>
+
                 <div id="genre-form-group" className="form-group">
                   <select
                     className="form-control"
@@ -95,7 +134,7 @@ class FinishSignupPageComponent extends Component {
                     value={this.state.artistGenre}
                     onChange={this.handleGenreChange}
                   >
-                    <option selected>Primary Genre *</option>
+                    <option value="">Primary Genre *</option>
                     <option value="Alternative">Alternative</option>
                     <option value="Ambient">Ambient</option>
                     <option value="Americana">Americana</option>
@@ -143,13 +182,16 @@ class FinishSignupPageComponent extends Component {
                     <option value="Spoken Word">Spoken Word</option>
                     <option value="World">World</option>
                   </select>
+                  <div id="invalid-genre-text" className="invalid-field-text">
+                    Please select a genre.
+                  </div>
                 </div>
                 <div id="country-form-group" className="form-group">
                   <select
                     className="form-control"
                     id="country"
                     aria-describedby="artistCountry"
-                    value={this.state.artistCountry}
+                    defaultValue="US"
                     onChange={this.handleCountryChange}
                   >
                     <option value="AF">Afghanistan</option>
@@ -383,9 +425,7 @@ class FinishSignupPageComponent extends Component {
                     <option value="UA">Ukraine</option>
                     <option value="AE">United Arab Emirates</option>
                     <option value="UK">United Kingdom</option>
-                    <option selected="selected" value="US">
-                      United States
-                    </option>
+                    <option value="US">United States</option>
                     <option value="UY">Uruguay</option>
                     <option value="UZ">Uzbekistan</option>
                     <option value="VU">Vanuatu</option>
@@ -399,6 +439,9 @@ class FinishSignupPageComponent extends Component {
                     <option value="ZM">Zambia</option>
                     <option value="ZW">Zimbabwe</option>
                   </select>
+                  <div id="invalid-country-text" className="invalid-field-text">
+                    Please select a country.
+                  </div>
                 </div>
                 <div id="zipcode-form-group" className="form-group">
                   <input
@@ -410,6 +453,9 @@ class FinishSignupPageComponent extends Component {
                     value={this.state.artistZipcode}
                     onChange={this.handleZipCodeChange}
                   />
+                  <div id="invalid-zipcode-text" className="invalid-field-text">
+                    Invalid zip/postalcode.
+                  </div>
                 </div>
                 <button
                   id="signup-button"
@@ -427,7 +473,7 @@ class FinishSignupPageComponent extends Component {
           <div id="placeholder">
             <img
               id="loading-blips"
-              src={require("../../../assets/loading-blips.gif")}
+              src={require("../../../../assets/loading-blips.gif")}
             />
           </div>
         )}
