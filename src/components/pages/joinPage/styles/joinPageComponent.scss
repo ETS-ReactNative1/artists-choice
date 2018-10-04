@@ -14,17 +14,23 @@
   background-color: rgba(255, 255, 255, 0.75);
   padding: 20px;
   border-radius: 10px;
+  font-family: "Exo", sans-serif;
+
+  h1 {
+    font-weight: 900;
+  }
 }
 
 #star-logo {
   width: 100px;
+  margin-bottom: 5px;
 }
 
 .form-group {
   margin-top: 25px;
   .invalid-field-text {
     color: red;
-    font-size: 14px;
+    font-size: 12px;
     position: absolute;
     display: none;
   }
@@ -42,4 +48,147 @@
 
 #signup-button {
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#join-section-content {
+  align-self: center;
+  margin: auto;
+  color: black;
+  font-family: "Exo", sans-serif;
+  font-size: 34px;
+
+  #join-section-star-logo {
+    max-width: 160px;
+  }
+
+  #join-section-scrolling-text-container {
+    height: 48px;
+    overflow: hidden;
+
+    #join-section-scrolling-text {
+      position: relative;
+      margin: auto;
+      top: -10px;
+      animation: scrollJoinText 2s ease infinite;
+    }
+
+    @keyframes scrollJoinText {
+      0% {
+        top: -60px;
+      }
+      20% {
+        top: -10px;
+      }
+      80% {
+        top: -10px;
+      }
+      100% {
+        top: 40px;
+      }
+    }
+  }
+
+  #join-section-buttons {
+    margin-top: 10px;
+    max-width: 350px;
+    font-family: "Exo", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+
+    #joinAsArtistButton {
+      padding: 20px;
+      color: black;
+      background-color: white;
+
+      &:hover {
+        cursor: pointer;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        display: block;
+        left: 0%;
+        bottom: 5px;
+        background: black;
+        transition: width 0.2s ease;
+        -webkit-transition: width 0.2s ease;
+      }
+
+      &:hover:after,
+      &:focus:after,
+      &:active:after {
+        width: 100%;
+      }
+    }
+
+    #joinAsFanButton {
+      padding: 20px;
+      color: white;
+      background-color: black;
+
+      &:hover {
+        cursor: pointer;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        display: block;
+        right: 0%;
+        bottom: 5px;
+        background: white;
+        transition: width 0.2s ease;
+        -webkit-transition: width 0.2s ease;
+      }
+
+      &:hover:after,
+      &:focus:after,
+      &:active:after {
+        width: 100%;
+      }
+    }
+
+    .joinButtonText {
+      &:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        display: block;
+        left: 0%;
+        bottom: 5px;
+        background: black;
+        transition: width 0.2s ease;
+        -webkit-transition: width 0.2s ease;
+      }
+
+      &:hover:after,
+      &:focus:after,
+      &:active:after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+#login-text {
+  color: #0062cc;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+#click-here-text {
+  color: #0062cc;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

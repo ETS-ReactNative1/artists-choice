@@ -5,6 +5,8 @@ import RouterComponent from "./components/routerComponent";
 import "./App.css";
 import "./common/animate.css";
 
+import fire from "./config/fire";
+
 import { WOW } from "wowjs";
 
 import {
@@ -35,7 +37,19 @@ library.add(
 );
 
 class App extends Component {
+  state = {};
+
   componentDidMount() {
+    fire.auth().onAuthStateChanged(user => {
+      if (user) {
+        //User is signed in.
+        console.log(user);
+      } else {
+        //User is signed out.
+      }
+    });
+
+    //Init WOW animations
     new WOW({
       live: false
     }).init();

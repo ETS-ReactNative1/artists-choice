@@ -10,6 +10,8 @@ import $ from "jquery";
 
 import { WOW } from "wowjs";
 
+import { dbAddUser } from "../../services/dbService";
+
 class JoinPageComponent extends Component {
   state = {
     userType: "",
@@ -18,20 +20,24 @@ class JoinPageComponent extends Component {
   };
 
   componentDidMount() {
+    //Set initial user type in state based on route param
+    const { userType } = this.props.match.params;
+    this.setState({ userType });
+
+    //Init WOW animations
     new WOW({
       live: false
     }).init();
-
-    //Set initial user type in state based on route param
-    const { userType } = this.props.match.params;
-    this.setState({ userType }, () => {
-      console.log(this.state.userType);
-    });
   }
 
   handleEmailChange = e => {
     this.setState({ email: e.target.value }, () => {
       console.log(this.state.email);
+
+      //Reset styling if empty
+      this.state.email === ""
+        ? $("#email-form-group").removeClass("invalid")
+        : null;
     });
   };
 
@@ -97,65 +103,253 @@ class JoinPageComponent extends Component {
 
   createNewUser(email, password) {
     console.log("create new user...");
+    //Create new user and sign them in.
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then(dbAddUser(fire.auth().currentUser, this.state.userType)) //Add user to DB
       .catch(error => {
         //Handle errors here
         console.log(error);
+        if (error.code === "auth/email-already-in-use") {
+          $("#email-form-group").addClass("invalid");
+          $("#invalid-email-text").html("Email address already in use.");
+        }
       });
+  }
+
+  setUserType(userType) {
+    this.setState({ userType });
   }
 
   render() {
     return (
       <div id="join-page-container" className="wow fadeIn">
         <div id="join-page-inner">
-          <div id="join-as-artist" className="col">
-            <img
-              id="star-logo"
-              src={require("../../../assets/logo_star.svg")}
-            />
-            <h1>Join As Artist</h1>
-            <form className="artist-signup-form">
-              <div id="email-form-group" className="form-group">
-                <label htmlFor="email">Email Address</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="email"
-                  aria-describedby="email"
-                  placeholder="Enter email"
-                  value={this.state.email}
-                  onChange={this.handleEmailChange}
-                />
-                <div className="invalid-field-text">
-                  Please provide a valid email address.
+          {this.state.userType === "artist" ? (
+            <div id="join-as-artist" className="col">
+              <img
+                id="star-logo"
+                src={require("../../../assets/logo_star.svg")}
+              />
+              <h1>Join As Artist</h1>
+              <form className="artist-signup-form">
+                <div id="email-form-group" className="form-group">
+                  <label htmlFor="email">Email Address</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="email"
+                    aria-describedby="email"
+                    placeholder="Enter email"
+                    value={this.state.email}
+                    onChange={this.handleEmailChange}
+                  />
+                  <div id="invalid-email-text" className="invalid-field-text">
+                    Please provide a valid email address.
+                  </div>
+                </div>
+                <div id="password-form-group" className="form-group">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    aria-describedby="password"
+                    placeholder="Enter password"
+                    value={this.state.password}
+                    onChange={this.handlePasswordChange}
+                  />
+                  <div
+                    id="invalid-password-text"
+                    className="invalid-field-text"
+                  >
+                    Please provide a valid password.
+                  </div>
+                </div>
+                <button
+                  id="signup-button"
+                  className="btn btn-primary"
+                  onClick={this.validate}
+                >
+                  Sign Up
+                </button>
+                <div className="col" style={{ marginBottom: "2px" }}>
+                  Already have an account?{" "}
+                  <span
+                    id="login-text"
+                    onClick={() => this.setState({ userType: "login" })}
+                  >
+                    Log In
+                  </span>
+                </div>
+                <div className="col">
+                  Join as a Fan instead?{" "}
+                  <span
+                    id="click-here-text"
+                    onClick={() => this.setState({ userType: "fan" })}
+                  >
+                    Click Here
+                  </span>
+                </div>
+              </form>
+            </div>
+          ) : this.state.userType === "fan" ? (
+            <div id="join-as-fan" className="col">
+              <img
+                id="star-logo"
+                src={require("../../../assets/logo_star.svg")}
+              />
+              <h1>Join As Fan</h1>
+              <form className="artist-signup-form">
+                <div id="email-form-group" className="form-group">
+                  <label htmlFor="email">Email Address</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="email"
+                    aria-describedby="email"
+                    placeholder="Enter email"
+                    value={this.state.email}
+                    onChange={this.handleEmailChange}
+                  />
+                  <div id="invalid-email-text" className="invalid-field-text">
+                    Please provide a valid email address.
+                  </div>
+                </div>
+                <div id="password-form-group" className="form-group">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    aria-describedby="password"
+                    placeholder="Enter password"
+                    value={this.state.password}
+                    onChange={this.handlePasswordChange}
+                  />
+                  <div
+                    id="invalid-password-text"
+                    className="invalid-field-text"
+                  >
+                    Please provide a valid password.
+                  </div>
+                </div>
+                <button
+                  id="signup-button"
+                  className="btn btn-primary"
+                  onClick={this.validate}
+                >
+                  Sign Up
+                </button>
+                <div className="col" style={{ marginBottom: "2px" }}>
+                  Already have an account?{" "}
+                  <span
+                    id="login-text"
+                    onClick={() => this.setState({ userType: "login" })}
+                  >
+                    Log In
+                  </span>
+                </div>
+                <div className="col">
+                  Join as an Artist instead?{" "}
+                  <span
+                    id="click-here-text"
+                    onClick={() => this.setState({ userType: "artist" })}
+                  >
+                    Click Here
+                  </span>
+                </div>
+              </form>
+            </div>
+          ) : this.state.userType === "login" ? (
+            <div id="join-as-fan" className="col">
+              <img
+                id="star-logo"
+                src={require("../../../assets/logo_star.svg")}
+              />
+              <h1>Log In</h1>
+              <form className="artist-signup-form">
+                <div id="email-form-group" className="form-group">
+                  <label htmlFor="email">Email Address</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="email"
+                    aria-describedby="email"
+                    placeholder="Enter email"
+                    value={this.state.email}
+                    onChange={this.handleEmailChange}
+                  />
+                  <div id="invalid-email-text" className="invalid-field-text">
+                    Please provide a valid email address.
+                  </div>
+                </div>
+                <div id="password-form-group" className="form-group">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="password"
+                    aria-describedby="password"
+                    placeholder="Enter password"
+                    value={this.state.password}
+                    onChange={this.handlePasswordChange}
+                  />
+                  <div
+                    id="invalid-password-text"
+                    className="invalid-field-text"
+                  >
+                    Please provide a valid password.
+                  </div>
+                </div>
+                <button id="signup-button" className="btn btn-primary">
+                  Log In
+                </button>
+                <div className="col">
+                  Need an account?{" "}
+                  <span
+                    id="click-here-text"
+                    onClick={() => this.setState({ userType: "" })}
+                  >
+                    Create An Account
+                  </span>
+                </div>
+              </form>
+            </div>
+          ) : (
+            <div id="join-section-content" className="col">
+              <img
+                id="join-section-star-logo"
+                src={require("../../../assets/logo_star.svg")}
+              />
+              <div className="col" style={{ fontWeight: "bold" }}>
+                Join Artist's Choice
+              </div>
+              <div id="join-section-buttons" className="container">
+                <div
+                  className="row"
+                  data-wow-delay="1s"
+                  data-wow-duration="0.5s"
+                >
+                  <div
+                    id="joinAsArtistButton"
+                    className="col"
+                    onClick={() => this.setUserType("artist")}
+                  >
+                    <span className="joinButtonText">Join as Artist</span>
+                  </div>
+                  <div
+                    id="joinAsFanButton"
+                    className="col"
+                    onClick={() => this.setUserType("fan")}
+                  >
+                    <span className="joinButtonText">Join as Fan</span>
+                  </div>
                 </div>
               </div>
-              <div id="password-form-group" className="form-group">
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  aria-describedby="password"
-                  placeholder="Enter password"
-                  value={this.state.password}
-                  onChange={this.handlePasswordChange}
-                />
-                <div id="invalid-password-text" className="invalid-field-text">
-                  Please provide a valid password.
-                </div>
-              </div>
-              <button
-                id="signup-button"
-                className="btn btn-primary"
-                onClick={this.validate}
-              >
-                Sign Up
-              </button>
-            </form>
-          </div>
+            </div>
+          )}
         </div>
       </div>
     );

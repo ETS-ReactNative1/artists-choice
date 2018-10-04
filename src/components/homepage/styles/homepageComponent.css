@@ -473,6 +473,7 @@
 
 #join-section #join-section-content #join-section-buttons #joinAsArtistButton:hover {
   cursor: pointer;
+  text-decoration: none;
 }
 
 #join-section #join-section-content #join-section-buttons #joinAsArtistButton:after {
@@ -500,6 +501,7 @@
 
 #join-section #join-section-content #join-section-buttons #joinAsFanButton:hover {
   cursor: pointer;
+  text-decoration: none;
 }
 
 #join-section #join-section-content #join-section-buttons #joinAsFanButton:after {

@@ -23,6 +23,7 @@ class HomepageTopSection extends Component {
     $("#join-section-scrolling-text").innerText = "";
     this.scrollText();
 
+    //Init WOW animations
     new WOW({
       live: false
     }).init();
@@ -323,13 +324,15 @@ class HomepageTopSection extends Component {
               </h2>
             </div>
           </div>
-          <button
-            id="joinFreeButton"
-            className="wow zoomIn"
-            data-wow-duration="0.5s"
-          >
-            Join Free
-          </button>
+          <Link id="joinButton" className="col" to={"/join"}>
+            <button
+              id="joinFreeButton"
+              className="wow zoomIn"
+              data-wow-duration="0.5s"
+            >
+              Join Free
+            </button>
+          </Link>
         </div>
         <TrendingComponent />
         <ShowsComponent />
@@ -355,12 +358,16 @@ class HomepageTopSection extends Component {
                 data-wow-delay="1s"
                 data-wow-duration="0.5s"
               >
-                <div id="joinAsArtistButton" className="col">
+                <Link
+                  id="joinAsArtistButton"
+                  className="col"
+                  to={"/join/artist"}
+                >
                   <span className="joinButtonText">Join as Artist</span>
-                </div>
-                <div id="joinAsFanButton" className="col">
+                </Link>
+                <Link id="joinAsFanButton" className="col" to={"/join/fan"}>
                   <span className="joinButtonText">Join as Fan</span>
-                </div>
+                </Link>
               </div>
             </div>
           </div>

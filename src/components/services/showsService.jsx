@@ -45,7 +45,6 @@ export const getLocationStringResults = str => {
 
 export const searchByMetroAreaID = id => {
   console.log("getting shows by metro area id...");
-  console.log("today's date: ", getDate());
 
   return axios
     .get(

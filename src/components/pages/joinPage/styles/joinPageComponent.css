@@ -17,10 +17,16 @@
   background-color: rgba(255, 255, 255, 0.75);
   padding: 20px;
   border-radius: 10px;
+  font-family: "Exo", sans-serif;
+}
+
+#join-page-inner h1 {
+  font-weight: 900;
 }
 
 #star-logo {
   width: 100px;
+  margin-bottom: 5px;
 }
 
 .form-group {
@@ -29,7 +35,7 @@
 
 .form-group .invalid-field-text {
   color: red;
-  font-size: 14px;
+  font-size: 12px;
   position: absolute;
   display: none;
 }
@@ -44,5 +50,160 @@
 
 #signup-button {
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#join-section-content {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: auto;
+  color: black;
+  font-family: "Exo", sans-serif;
+  font-size: 34px;
+}
+
+#join-section-content #join-section-star-logo {
+  max-width: 160px;
+}
+
+#join-section-content #join-section-scrolling-text-container {
+  height: 48px;
+  overflow: hidden;
+}
+
+#join-section-content #join-section-scrolling-text-container #join-section-scrolling-text {
+  position: relative;
+  margin: auto;
+  top: -10px;
+  -webkit-animation: scrollJoinText 2s ease infinite;
+          animation: scrollJoinText 2s ease infinite;
+}
+
+@-webkit-keyframes scrollJoinText {
+  0% {
+    top: -60px;
+  }
+  20% {
+    top: -10px;
+  }
+  80% {
+    top: -10px;
+  }
+  100% {
+    top: 40px;
+  }
+}
+
+@keyframes scrollJoinText {
+  0% {
+    top: -60px;
+  }
+  20% {
+    top: -10px;
+  }
+  80% {
+    top: -10px;
+  }
+  100% {
+    top: 40px;
+  }
+}
+
+#join-section-content #join-section-buttons {
+  margin-top: 10px;
+  max-width: 350px;
+  font-family: "Exo", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+#join-section-content #join-section-buttons #joinAsArtistButton {
+  padding: 20px;
+  color: black;
+  background-color: white;
+}
+
+#join-section-content #join-section-buttons #joinAsArtistButton:hover {
+  cursor: pointer;
+}
+
+#join-section-content #join-section-buttons #joinAsArtistButton:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  left: 0%;
+  bottom: 5px;
+  background: black;
+  transition: width 0.2s ease;
+  -webkit-transition: width 0.2s ease;
+}
+
+#join-section-content #join-section-buttons #joinAsArtistButton:hover:after, #join-section-content #join-section-buttons #joinAsArtistButton:focus:after, #join-section-content #join-section-buttons #joinAsArtistButton:active:after {
+  width: 100%;
+}
+
+#join-section-content #join-section-buttons #joinAsFanButton {
+  padding: 20px;
+  color: white;
+  background-color: black;
+}
+
+#join-section-content #join-section-buttons #joinAsFanButton:hover {
+  cursor: pointer;
+}
+
+#join-section-content #join-section-buttons #joinAsFanButton:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  right: 0%;
+  bottom: 5px;
+  background: white;
+  transition: width 0.2s ease;
+  -webkit-transition: width 0.2s ease;
+}
+
+#join-section-content #join-section-buttons #joinAsFanButton:hover:after, #join-section-content #join-section-buttons #joinAsFanButton:focus:after, #join-section-content #join-section-buttons #joinAsFanButton:active:after {
+  width: 100%;
+}
+
+#join-section-content #join-section-buttons .joinButtonText:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  left: 0%;
+  bottom: 5px;
+  background: black;
+  transition: width 0.2s ease;
+  -webkit-transition: width 0.2s ease;
+}
+
+#join-section-content #join-section-buttons .joinButtonText:hover:after, #join-section-content #join-section-buttons .joinButtonText:focus:after, #join-section-content #join-section-buttons .joinButtonText:active:after {
+  width: 100%;
+}
+
+#login-text {
+  color: #0062cc;
+}
+
+#login-text:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#click-here-text {
+  color: #0062cc;
+}
+
+#click-here-text:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 /*# sourceMappingURL=joinPageComponent.css.map */
