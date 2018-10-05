@@ -1,9 +1,23 @@
 import React, { Component } from "react";
 
+import { WOW } from "wowjs";
+
 class FanProfilePageComponent extends Component {
   state = {};
+
+  componentDidMount() {
+    //Init WOW animations
+    new WOW({
+      live: false
+    }).init();
+  }
+
   render() {
-    return;
+    return (
+      <div>
+        <h1>Fan Page</h1>
+      </div>
+    );
   }
 }
 

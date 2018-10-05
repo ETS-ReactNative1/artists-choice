@@ -25,6 +25,14 @@ class FinishSignupPageComponent extends Component {
     new WOW({
       live: false
     }).init();
+
+    //Redirect to homepage if user has already filled in details or no user is logged in
+    if (
+      !this.props.loggedInUser |
+      (this.props.loggedInUser.userName !== null)
+    ) {
+      window.location = "/";
+    }
   }
 
   handleNameChange = e => {
@@ -98,7 +106,7 @@ class FinishSignupPageComponent extends Component {
   render() {
     return (
       <div className="wow fadeIn">
-        {this.props.userType === "artist" ? (
+        {this.props.loggedInUser.userType === "artist" ? (
           <div id="artist-info-form-container">
             <div id="artist-info-form-inner">
               <img
@@ -463,7 +471,7 @@ class FinishSignupPageComponent extends Component {
               </form>
             </div>
           </div>
-        ) : this.props.userType === "fan" ? (
+        ) : this.props.loggedInUser.userType === "fan" ? (
           <div />
         ) : (
           <div id="placeholder">
