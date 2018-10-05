@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import fire from "../../../../config/fire";
+
 import { dbSubmitArtistDetails } from "../../../services/dbService";
 
 import "./styles/finishSignupPageComponent.css";
@@ -14,7 +16,7 @@ class FinishSignupPageComponent extends Component {
   state = {
     artistName: "",
     artistGenre: "",
-    artistCountry: "",
+    artistCountry: "US",
     artistZipcode: ""
   };
 
@@ -26,31 +28,24 @@ class FinishSignupPageComponent extends Component {
   }
 
   handleNameChange = e => {
-    this.setState({ artistName: e.target.value }, () => {
-      console.log(this.state.artistName);
-    });
+    this.setState({ artistName: e.target.value }, () => {});
   };
 
   handleGenreChange = e => {
-    this.setState({ artistGenre: e.target.value }, () => {
-      console.log(this.state.artistGenre);
-    });
+    this.setState({ artistGenre: e.target.value }, () => {});
   };
 
   handleCountryChange = e => {
-    this.setState({ artistCountry: e.target.value }, () => {
-      console.log(this.state.artistCountry);
-    });
+    this.setState({ artistCountry: e.target.value }, () => {});
   };
 
   handleZipCodeChange = e => {
-    this.setState({ artistZipcode: e.target.value }, () => {
-      console.log(this.state.artistZipcode);
-    });
+    this.setState({ artistZipcode: e.target.value }, () => {});
   };
 
   validateName(name) {
-    if (validator.isLength(name, { min: 2 })) {
+    var regex = /^[a-zA-Z0-9 !@#\$%\^\&*\)\(+=._-]+$/g;
+    if (validator.isLength(name, { min: 2 }) && regex.test(name)) {
       $("#name-form-group").removeClass("invalid");
       return true;
     } else {
@@ -91,6 +86,7 @@ class FinishSignupPageComponent extends Component {
     this.validateCountry(this.state.artistCountry) &&
     this.validateZipcode(this.state.artistZipcode)
       ? dbSubmitArtistDetails(
+          fire.auth().currentUser,
           this.state.artistName,
           this.state.artistGenre,
           this.state.artistCountry,
@@ -122,7 +118,7 @@ class FinishSignupPageComponent extends Component {
                     onChange={this.handleNameChange}
                   />
                   <div id="invalid-email-text" className="invalid-field-text">
-                    Name length must be at least 2 characters.
+                    Name must be at least 2 characters with no invalid symbols.
                   </div>
                 </div>
 

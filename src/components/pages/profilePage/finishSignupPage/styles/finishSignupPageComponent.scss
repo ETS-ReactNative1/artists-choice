@@ -14,11 +14,22 @@
   background-color: lightgrey;
   display: flex;
   align-content: center;
+  font-family: "Exo", sans-serif;
+  background-image: url("../../../../../assets/artist-photo-1.jpeg");
+  background-size: cover;
+  background-position: center;
+
+  h1 {
+    font-weight: 900;
+  }
 
   #artist-info-form-inner {
     width: 100%;
     margin: auto;
     max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 20px;
+    border-radius: 10px;
   }
 }
 

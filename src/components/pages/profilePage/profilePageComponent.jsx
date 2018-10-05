@@ -11,7 +11,9 @@ import FinishSignupPageComponent from "./finishSignupPage/finishSignupPageCompon
 class ProfilePageComponent extends Component {
   state = {
     userType: "",
-    userName: ""
+    userName: "",
+    loggedInUser: {},
+    user: ""
   };
 
   componentDidMount() {
@@ -25,20 +27,30 @@ class ProfilePageComponent extends Component {
             user.data().userName !== null
               ? this.setState({ userName: user.data().userName })
               : null;
+            this.setState({ loggedInUser: user.data() });
           });
       } else {
         console.log("no user signed in.");
       }
     });
+    const { user } = this.props.match.params;
+    this.setState({ user });
   }
 
   render() {
     return (
-      <div className="wow fadeIn">
+      <React.Fragment>
         {this.state.userName === undefined ? (
           <FinishSignupPageComponent userType={this.state.userType} />
+        ) : this.state.userType === "artist" ? (
+          <ArtistProfilePageComponent
+            loggedInUser={this.state.loggedInUser}
+            user={this.state.user}
+          />
+        ) : this.state.userType === "fan" ? (
+          <FanProfilePageComponent />
         ) : null}
-      </div>
+      </React.Fragment>
     );
   }
 }
