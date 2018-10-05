@@ -14,7 +14,7 @@ class FanProfilePageComponent extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wow fadeIn">
         <h1>Fan Page</h1>
       </div>
     );

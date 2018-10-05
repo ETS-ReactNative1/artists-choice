@@ -6,9 +6,7 @@ import { dbGetUser, dbGetUserByAltName } from "../../services/dbService";
 
 import ArtistProfilePageComponent from "./artistProfilePage/artistProfilePageComponent";
 import FanProfilePageComponent from "./fanProfilePage/fanProfilePageComponent";
-import FinishSignupPageComponent from "./finishSignupPage/finishSignupPageComponent";
-
-import { WOW } from "wowjs";
+import FinishSignupPageComponent from "../finishSignupPage/finishSignupPageComponent";
 
 class ProfilePageComponent extends Component {
   state = {
@@ -73,10 +71,15 @@ class ProfilePageComponent extends Component {
         ) : this.state.userForPage.userType === "artist" ? (
           <ArtistProfilePageComponent
             loggedInUser={this.state.loggedInUser}
-            user={this.state.userForPage}
+            userForPage={this.state.userForPage}
+            isUserMatch={this.state.isUserMatch}
           />
         ) : this.state.userForPage.userType === "fan" ? (
-          <FanProfilePageComponent />
+          <FanProfilePageComponent
+            loggedInUser={this.state.loggedInUser}
+            userForPage={this.state.userForPage}
+            isUserMatch={this.state.isUserMatch}
+          />
         ) : null}
       </div>
     );

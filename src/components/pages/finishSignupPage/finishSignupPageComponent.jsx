@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 
-import fire from "../../../../config/fire";
+import fire from "../../../config/fire";
 
-import { dbSubmitArtistDetails } from "../../../services/dbService";
+import {
+  dbSubmitArtistDetails,
+  dbSubmitFanDetails
+} from "../../services/dbService";
 
 import "./styles/finishSignupPageComponent.css";
 
@@ -20,15 +23,17 @@ class FinishSignupPageComponent extends Component {
     artistZipcode: "",
 
     fanName: "",
-    fanCountry: "",
+    fanCountry: "US",
     fanZipcode: ""
   };
 
   componentDidMount() {
-    //Init WOW animations
-    new WOW({
-      live: false
-    }).init();
+    setTimeout(() => {
+      //Init WOW animations
+      new WOW({
+        live: false
+      }).init();
+    }, 1000);
   }
 
   handleArtistNameChange = e => {
@@ -59,7 +64,7 @@ class FinishSignupPageComponent extends Component {
     this.setState({ fanZipcode: e.target.value }, () => {});
   };
 
-  validateArtistName(name) {
+  validateName(name) {
     var regex = /^[a-zA-Z0-9 !@#\$%\^\&*\)\(+=._-]+$/g;
     if (validator.isLength(name, { min: 2 }) && regex.test(name)) {
       $("#name-form-group").removeClass("invalid");
@@ -97,7 +102,7 @@ class FinishSignupPageComponent extends Component {
   processArtistDetails = e => {
     e.preventDefault(); //Prevent default submit behaviour
 
-    this.validateArtistName(this.state.artistName) &&
+    this.validateName(this.state.artistName) &&
     this.validateGenre(this.state.artistGenre) &&
     this.validateCountry(this.state.artistCountry) &&
     this.validateZipcode(this.state.artistZipcode)
@@ -112,7 +117,18 @@ class FinishSignupPageComponent extends Component {
   };
 
   processFanDetails = e => {
-    console.log("Processing...");
+    e.preventDefault(); //Prevent default submit behaviour
+
+    this.validateName(this.state.fanName) &&
+    this.validateCountry(this.state.fanCountry) &&
+    this.validateZipcode(this.state.fanZipcode)
+      ? dbSubmitFanDetails(
+          fire.auth().currentUser,
+          this.state.fanName,
+          this.state.fanCountry,
+          this.state.fanZipcode
+        )
+      : null;
   };
 
   render() {
@@ -123,7 +139,7 @@ class FinishSignupPageComponent extends Component {
             <div id="artist-info-form-inner">
               <img
                 id="star-logo"
-                src={require("../../../../assets/logo_star.svg")}
+                src={require("../../../assets/logo_star.svg")}
               />
               <h1>Artist Details</h1>
               <form className="artist-signup-form">
@@ -488,7 +504,7 @@ class FinishSignupPageComponent extends Component {
             <div id="fan-info-form-inner">
               <img
                 id="star-logo"
-                src={require("../../../../assets/logo_star.svg")}
+                src={require("../../../assets/logo_star.svg")}
               />
               <h1>Fan Details</h1>
               <form className="fan-signup-form">
@@ -791,7 +807,7 @@ class FinishSignupPageComponent extends Component {
           <div id="placeholder">
             <img
               id="loading-blips"
-              src={require("../../../../assets/loading-blips.gif")}
+              src={require("../../../assets/loading-blips.gif")}
             />
           </div>
         )}

@@ -97,3 +97,53 @@ export function dbGetUserByAltName(name) {
     .where("altName", "==", name)
     .get();
 }
+
+export function dbSubmitFanDetails(user, fanName, fanCountry, fanZipcode) {
+  let altName = "test";
+
+  generateUniqueName(fanName).then(res => {
+    altName = res;
+
+    submitNewData(user.uid, altName, fanName, fanCountry, fanZipcode);
+  });
+
+  function submitNewData(userID, altName, fanName, fanCountry, fanZipcode) {
+    db.collection("users")
+      .doc(userID)
+      .set(
+        {
+          altName: altName,
+          userName: fanName,
+          fanCountry: fanCountry,
+          fanZipcode: fanZipcode
+        },
+        { merge: true }
+      )
+      .then(() => {
+        console.log("Artist details written!");
+        window.location = "/" + altName;
+      });
+  }
+
+  function generateUniqueName(name) {
+    let altName = name.replace(/[^a-zA-Z0-9]/g, "");
+
+    return db
+      .collection("users")
+      .where("altName", "==", altName)
+      .get()
+      .then(querySnapshot => {
+        if (querySnapshot.size === 0) {
+          console.log("name is ok");
+          return altName;
+        } else {
+          altName = fixDuplicateName(altName, querySnapshot.size);
+          return altName;
+        }
+      });
+
+    function fixDuplicateName(name, duplicatesLength) {
+      return name + duplicatesLength.toString();
+    }
+  }
+}
