@@ -65,7 +65,7 @@ class FinishSignupPageComponent extends Component {
   };
 
   validateName(name) {
-    var regex = /^[a-zA-Z0-9 !@#\$%\^\&*\)\(+=._-]+$/g;
+    var regex = /^[a-zA-Z0-9 !@#$%^&*)(+=._-]+$/g;
     if (validator.isLength(name, { min: 2 }) && regex.test(name)) {
       $("#name-form-group").removeClass("invalid");
       return true;
@@ -102,33 +102,37 @@ class FinishSignupPageComponent extends Component {
   processArtistDetails = e => {
     e.preventDefault(); //Prevent default submit behaviour
 
-    this.validateName(this.state.artistName) &&
-    this.validateGenre(this.state.artistGenre) &&
-    this.validateCountry(this.state.artistCountry) &&
-    this.validateZipcode(this.state.artistZipcode)
-      ? dbSubmitArtistDetails(
-          fire.auth().currentUser,
-          this.state.artistName,
-          this.state.artistGenre,
-          this.state.artistCountry,
-          this.state.artistZipcode
-        )
-      : null;
+    if (
+      this.validateName(this.state.artistName) &&
+      this.validateGenre(this.state.artistGenre) &&
+      this.validateCountry(this.state.artistCountry) &&
+      this.validateZipcode(this.state.artistZipcode)
+    ) {
+      dbSubmitArtistDetails(
+        fire.auth().currentUser,
+        this.state.artistName,
+        this.state.artistGenre,
+        this.state.artistCountry,
+        this.state.artistZipcode
+      );
+    }
   };
 
   processFanDetails = e => {
     e.preventDefault(); //Prevent default submit behaviour
 
-    this.validateName(this.state.fanName) &&
-    this.validateCountry(this.state.fanCountry) &&
-    this.validateZipcode(this.state.fanZipcode)
-      ? dbSubmitFanDetails(
-          fire.auth().currentUser,
-          this.state.fanName,
-          this.state.fanCountry,
-          this.state.fanZipcode
-        )
-      : null;
+    if (
+      this.validateName(this.state.fanName) &&
+      this.validateCountry(this.state.fanCountry) &&
+      this.validateZipcode(this.state.fanZipcode)
+    ) {
+      dbSubmitFanDetails(
+        fire.auth().currentUser,
+        this.state.fanName,
+        this.state.fanCountry,
+        this.state.fanZipcode
+      );
+    }
   };
 
   render() {

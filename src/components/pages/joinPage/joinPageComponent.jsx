@@ -10,7 +10,7 @@ import $ from "jquery";
 
 import { WOW } from "wowjs";
 
-import { dbAddUser } from "../../services/dbService";
+import { dbAddUser, dbGetUser } from "../../services/dbService";
 
 class JoinPageComponent extends Component {
   state = {
@@ -35,9 +35,9 @@ class JoinPageComponent extends Component {
       console.log(this.state.email);
 
       //Reset styling if empty
-      this.state.email === ""
-        ? $("#email-form-group").removeClass("invalid")
-        : null;
+      if (this.state.email === "") {
+        $("#email-form-group").removeClass("invalid");
+      }
     });
   };
 
@@ -50,10 +50,12 @@ class JoinPageComponent extends Component {
   validate = e => {
     e.preventDefault(); //Prevent default submit behaviour
 
-    this.validateEmail(this.state.email) &&
-    this.validatePassword(this.state.password)
-      ? this.createNewUser(this.state.email, this.state.password)
-      : null;
+    if (
+      this.validateEmail(this.state.email) &&
+      this.validatePassword(this.state.password)
+    ) {
+      this.createNewUser(this.state.email, this.state.password);
+    }
   };
 
   validateEmail(email) {
@@ -123,6 +125,30 @@ class JoinPageComponent extends Component {
 
   setUserType(userType) {
     this.setState({ userType });
+  }
+
+  validateAndLogin = e => {
+    e.preventDefault(); //Prevent default submit behaviour
+
+    this.validateEmail(this.state.email) &&
+    this.validatePassword(this.state.password)
+      ? this.login(this.state.email, this.state.password)
+      : null;
+  };
+
+  login(email, password) {
+    fire
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        console.log(fire.auth().currentUser);
+        dbGetUser(fire.auth().currentUser.uid)
+          .get()
+          .then(user => {
+            console.log(user.data().altName);
+            window.location = "/" + user.data().altName;
+          });
+      });
   }
 
   render() {
@@ -284,9 +310,6 @@ class JoinPageComponent extends Component {
                     value={this.state.email}
                     onChange={this.handleEmailChange}
                   />
-                  <div id="invalid-email-text" className="invalid-field-text">
-                    Please provide a valid email address.
-                  </div>
                 </div>
                 <div id="password-form-group" className="form-group">
                   <label htmlFor="password">Password</label>
@@ -299,14 +322,15 @@ class JoinPageComponent extends Component {
                     value={this.state.password}
                     onChange={this.handlePasswordChange}
                   />
-                  <div
-                    id="invalid-password-text"
-                    className="invalid-field-text"
-                  >
-                    Please provide a valid password.
-                  </div>
                 </div>
-                <button id="signup-button" className="btn btn-primary">
+                <div id="invalid-login-info-text">
+                  Invalid email or password.
+                </div>
+                <button
+                  id="signup-button"
+                  className="btn btn-primary"
+                  onClick={this.validateAndLogin}
+                >
                   Log In
                 </button>
                 <div className="col">

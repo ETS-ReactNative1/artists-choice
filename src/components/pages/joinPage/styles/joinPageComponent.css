@@ -206,4 +206,9 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+#invalid-login-info-text {
+  color: red;
+  display: none;
+}
 /*# sourceMappingURL=joinPageComponent.css.map */
