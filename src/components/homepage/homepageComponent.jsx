@@ -9,7 +9,7 @@ import TrendingComponent from "./components/trending/trendingComponent";
 import ShowsComponent from "./components/shows/showsComponent";
 import FooterComponent from "../footer/footerComponent";
 
-import LoginModalComponent from "../common/loginModalComponent";
+import UserModalComponent from "../common/userModalComponent";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -115,7 +115,7 @@ class HomepageTopSection extends Component {
             <div id="top-section-2-nested-3" />
           </div>
 
-          <LoginModalComponent />
+          <UserModalComponent />
         </div>
         <div id="top-section-bot" className="row">
           <div
