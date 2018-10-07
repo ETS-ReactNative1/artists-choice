@@ -1,0 +1,106 @@
+$global-red: #cc1236;
+
+#login-modal {
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  width: 400px;
+  max-width: 80vw;
+  position: absolute;
+  top: 80px;
+  right: 30px;
+  font-family: "Exo", sans-serif;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 2px solid $global-red;
+
+  #login-modal-header {
+    font-size: 22px;
+    font-weight: 900;
+  }
+}
+
+.login-modal-open {
+  display: block;
+}
+
+.login-modal-close {
+  display: none;
+}
+
+#email-form-group {
+  margin: 0;
+  margin-top: 10px;
+}
+
+#password-form-group {
+  margin: 0;
+  margin-top: 20px;
+}
+
+#login-button {
+  margin: 5px;
+
+  background-color: $global-red;
+  border: 2px solid $global-red;
+
+  &:hover {
+    border: 2px solid black;
+  }
+}
+
+#cancel-button {
+  margin: 5px;
+  background-color: grey;
+  border: 2px solid grey;
+
+  &:hover {
+    border: 2px solid black;
+  }
+}
+
+#login-caret {
+  position: absolute;
+  top: -25px;
+  right: 7px;
+  color: white;
+}
+
+#user-login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  font-size: 40px;
+  padding-right: 30px;
+  padding-top: 10px;
+  z-index: 100;
+
+  #login-icon {
+    &:hover {
+      cursor: pointer;
+      color: $global-red;
+      stroke: white;
+      stroke-width: 25;
+    }
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  #login-caret {
+    display: none;
+  }
+
+  #user-login {
+    color: black;
+
+    #login-icon {
+      &:hover {
+        color: $global-red;
+        stroke: none;
+      }
+    }
+  }
+}

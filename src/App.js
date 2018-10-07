@@ -12,9 +12,11 @@ import { WOW } from "wowjs";
 import {
   faHeadphones,
   faBullhorn,
+  faUserCircle,
   faUsers,
   faInfinity,
-  faMapMarkerAlt
+  faMapMarkerAlt,
+  faCaretUp
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -31,9 +33,11 @@ library.add(
   faInstagram,
   faHeadphones,
   faBullhorn,
+  faUserCircle,
   faUsers,
   faInfinity,
-  faMapMarkerAlt
+  faMapMarkerAlt,
+  faCaretUp
 );
 
 class App extends Component {

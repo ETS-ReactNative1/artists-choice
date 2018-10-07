@@ -35,6 +35,23 @@
   margin-right: 20px;
 }
 
+#homepage-login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  font-size: 40px;
+  padding-right: 30px;
+  padding-top: 10px;
+}
+
+#homepage-login #login-icon:hover {
+  cursor: pointer;
+  color: #cc1236;
+  stroke: white;
+  stroke-width: 25;
+}
+
 #joinButtons {
   position: absolute;
   bottom: 5vmax;
