@@ -8,8 +8,10 @@ import NavbarComponent from "../navbar/navbarComponent";
 import TrendingComponent from "./components/trending/trendingComponent";
 import ShowsComponent from "./components/shows/showsComponent";
 import FooterComponent from "../footer/footerComponent";
-
 import UserModalComponent from "../common/userModalComponent";
+
+import fire from "../../config/fire";
+import { dbGetUser } from "../services/dbService";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -18,9 +20,27 @@ import $ from "jquery";
 import { WOW } from "wowjs";
 
 class HomepageTopSection extends Component {
-  state = {};
+  state = {
+    loggedInUser: null
+  };
 
   componentDidMount() {
+    fire.auth().onAuthStateChanged(() => {
+      if (fire.auth().currentUser !== null) {
+        //If user is logged in.
+        dbGetUser(fire.auth().currentUser.uid)
+          .get()
+          .then(user => {
+            this.setState({ loggedInUser: user.data() }, () => {
+              console.log("User logged in:", this.state.loggedInUser);
+            });
+          });
+      } else {
+        console.log("no user signed in.");
+        this.setState({ loggedInUser: null });
+      }
+    });
+
     this.startFlicker();
     $("#join-section-scrolling-text").innerText = "";
     this.scrollText();
@@ -115,7 +135,7 @@ class HomepageTopSection extends Component {
             <div id="top-section-2-nested-3" />
           </div>
 
-          <UserModalComponent />
+          <UserModalComponent loggedInUser={this.state.loggedInUser} />
         </div>
         <div id="top-section-bot" className="row">
           <div
