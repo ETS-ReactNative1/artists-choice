@@ -1,9 +1,13 @@
 #trending-section {
   background-color: rgb(200, 200, 200);
   padding-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 
   #trending-header {
-    padding: 50px;
+    padding: 2vw;
+    padding-top: 50px;
+    padding-bottom: 40px;
     #whats-trending-text {
       margin-top: 15px;
       position: relative;
@@ -14,14 +18,45 @@
     }
   }
 
-  #trending-global-section {
-    height: 150px;
-    border: 3px solid red;
+  #trending-artist-section {
+    padding: 0;
+    display: flex;
+    max-width: 1400px;
+    margin: auto;
+    width: 100%;
+
+    .trending-artist-image-container {
+      padding: 10px;
+      clip-path: circle(70px at center);
+      .trending-artist-image {
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+      }
+    }
   }
 
-  #trending-local-section {
-    height: 500px;
-    border: 3px solid blue;
+  #trending-tracks-section {
+    max-width: 1400px;
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+
+    .trending-tracks-list {
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: left;
+
+        li {
+          padding: 10px;
+          border-bottom: 1px solid rgb(125, 125, 125);
+          font-family: "Exo", sans-serif;
+          overflow: hidden;
+        }
+      }
+    }
   }
 }
 
@@ -34,5 +69,19 @@
   }
   100% {
     transform: scale(1, 1);
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  #trending-section {
+    #trending-tracks-section {
+      .trending-tracks-list {
+        ul {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+      }
+    }
   }
 }

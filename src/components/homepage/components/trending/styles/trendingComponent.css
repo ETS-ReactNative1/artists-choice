@@ -1,10 +1,14 @@
 #trending-section {
   background-color: #c8c8c8;
   padding-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #trending-section #trending-header {
-  padding: 50px;
+  padding: 2vw;
+  padding-top: 50px;
+  padding-bottom: 40px;
 }
 
 #trending-section #trending-header #whats-trending-text {
@@ -18,14 +22,47 @@
           animation: pulse 0.6s linear infinite;
 }
 
-#trending-section #trending-global-section {
-  height: 150px;
-  border: 3px solid red;
+#trending-section #trending-artist-section {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1400px;
+  margin: auto;
+  width: 100%;
 }
 
-#trending-section #trending-local-section {
-  height: 500px;
-  border: 3px solid blue;
+#trending-section #trending-artist-section .trending-artist-image-container {
+  padding: 10px;
+  -webkit-clip-path: circle(70px at center);
+          clip-path: circle(70px at center);
+}
+
+#trending-section #trending-artist-section .trending-artist-image-container .trending-artist-image {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+#trending-section #trending-tracks-section {
+  max-width: 1400px;
+  margin: auto;
+  padding: 10px;
+  width: 100%;
+}
+
+#trending-section #trending-tracks-section .trending-tracks-list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+#trending-section #trending-tracks-section .trending-tracks-list ul li {
+  padding: 10px;
+  border-bottom: 1px solid #7d7d7d;
+  font-family: "Exo", sans-serif;
+  overflow: hidden;
 }
 
 @-webkit-keyframes pulse {
@@ -55,6 +92,13 @@
   100% {
     -webkit-transform: scale(1, 1);
             transform: scale(1, 1);
+  }
+}
+
+@media (min-width: 768px) {
+  #trending-section #trending-tracks-section .trending-tracks-list ul {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 /*# sourceMappingURL=trendingComponent.css.map */
