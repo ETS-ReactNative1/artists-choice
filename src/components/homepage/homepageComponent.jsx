@@ -278,7 +278,7 @@ class HomepageTopSection extends Component {
               <div className="row">
                 <div
                   className="col-xs-12 col-sm-6 col-xl wow fadeInUp"
-                  data-wow-delay="0.5s"
+                  data-wow-delay="0.25s"
                 >
                   <FontAwesomeIcon
                     className="why-icon"
@@ -293,7 +293,7 @@ class HomepageTopSection extends Component {
                 </div>
                 <div
                   className="col-xs-12 col-sm-6 col-xl wow fadeInUp"
-                  data-wow-delay="1.27s"
+                  data-wow-delay="0.75s"
                 >
                   <FontAwesomeIcon
                     className="why-icon"
@@ -308,7 +308,7 @@ class HomepageTopSection extends Component {
                 </div>
                 <div
                   className="col-xs-12 col-sm-6 col-xl wow fadeInUp"
-                  data-wow-delay="2s"
+                  data-wow-delay="1.25s"
                 >
                   <FontAwesomeIcon
                     className="why-icon"
@@ -324,7 +324,7 @@ class HomepageTopSection extends Component {
 
                 <div
                   className="col-xs-12 col-sm-6 col-xl wow fadeInUp"
-                  data-wow-delay="3s"
+                  data-wow-delay="1.75s"
                 >
                   <FontAwesomeIcon
                     className="why-icon"

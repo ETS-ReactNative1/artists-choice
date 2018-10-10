@@ -19,6 +19,31 @@ $global-red: #cc1236;
     font-size: 22px;
     font-weight: 900;
   }
+
+  hr {
+    margin-top: 5px;
+    margin-bottom: 0px;
+  }
+
+  #login-modal-buttons-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+
+    a {
+      text-decoration: none;
+    }
+
+    li {
+      font-size: 18px;
+      padding: 5px;
+
+      &:hover {
+        background-color: rgb(230, 230, 230);
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .login-modal-open {

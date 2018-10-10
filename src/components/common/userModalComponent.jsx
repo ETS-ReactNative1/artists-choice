@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import "./styles/userModalComponent.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { Link } from "react-router-dom";
+
 import $ from "jquery";
 
 import fire from "../../config/fire";
@@ -16,15 +18,11 @@ class LoginModalComponent extends Component {
   componentDidMount() {}
 
   handleEmailChange = e => {
-    this.setState({ email: e.target.value }, () => {
-      console.log(this.state.email);
-    });
+    this.setState({ email: e.target.value }, () => {});
   };
 
   handlePasswordChange = e => {
-    this.setState({ password: e.target.value }, () => {
-      console.log(this.state.password);
-    });
+    this.setState({ password: e.target.value }, () => {});
   };
 
   toggleLoginModal = () => {
@@ -123,7 +121,18 @@ class LoginModalComponent extends Component {
 
             <div id="login-modal" className="login-modal-close">
               <FontAwesomeIcon id="login-caret" icon={["fas", "caret-up"]} />
-              <div id="login-modal-header">User Info</div>
+              <div id="login-modal-header">
+                {this.props.loggedInUser.userName}
+              </div>
+              <hr />
+              <ul id="login-modal-buttons-list">
+                <Link to={"/" + this.props.loggedInUser.altName}>
+                  <li>Profile</li>
+                </Link>
+                <Link to={"/" + this.props.loggedInUser.altName + "/settings"}>
+                  <li>Settings</li>
+                </Link>
+              </ul>
               <button
                 id="logout-button"
                 className="btn btn-primary"

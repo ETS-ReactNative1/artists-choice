@@ -19,6 +19,31 @@
   font-weight: 900;
 }
 
+#login-modal hr {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+#login-modal #login-modal-buttons-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+#login-modal #login-modal-buttons-list a {
+  text-decoration: none;
+}
+
+#login-modal #login-modal-buttons-list li {
+  font-size: 18px;
+  padding: 5px;
+}
+
+#login-modal #login-modal-buttons-list li:hover {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+
 .login-modal-open {
   display: block;
 }
