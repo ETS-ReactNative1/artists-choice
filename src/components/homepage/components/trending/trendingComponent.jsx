@@ -76,13 +76,16 @@ class TrendingComponent extends Component {
             className="col-12 col-md-6 trending-tracks-list"
           >
             <ul>
-              <li className="row">
+              <li className="row trending-tracks-list-header">
                 <div className="col-2">#</div>
                 <div className="col-6">TITLE</div>
                 <div className="col-4">ARTIST</div>
               </li>
               {this.state.trendingTracksFirstHalf.map(track => (
-                <li className="row">
+                <li
+                  className="row"
+                  key={this.state.trendingTracks.indexOf(track)}
+                >
                   <div className="col-2">
                     {this.state.trendingTracks.indexOf(track) + 1}
                   </div>
@@ -98,14 +101,17 @@ class TrendingComponent extends Component {
           >
             <ul>
               {this.state.is768px ? (
-                <li className="row">
+                <li className="row trending-tracks-list-header">
                   <div className="col-2">#</div>
                   <div className="col-6">TITLE</div>
                   <div className="col-4">ARTIST</div>
                 </li>
               ) : null}
               {this.state.trendingTracksSecondHalf.map(track => (
-                <li className="row">
+                <li
+                  className="row"
+                  key={this.state.trendingTracks.indexOf(track)}
+                >
                   <div className="col-2">
                     {this.state.trendingTracks.indexOf(track) + 1}
                   </div>

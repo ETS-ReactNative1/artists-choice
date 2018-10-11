@@ -58,11 +58,22 @@
   text-align: left;
 }
 
+#trending-section #trending-tracks-section .trending-tracks-list ul .trending-tracks-list-header:hover {
+  background-color: #c8c8c8;
+  cursor: default;
+}
+
 #trending-section #trending-tracks-section .trending-tracks-list ul li {
   padding: 10px;
   border-bottom: 1px solid #7d7d7d;
   font-family: "Exo", sans-serif;
+  font-weight: 900;
   overflow: hidden;
+}
+
+#trending-section #trending-tracks-section .trending-tracks-list ul li:hover {
+  background-color: #d2d2d2;
+  cursor: pointer;
 }
 
 @-webkit-keyframes pulse {

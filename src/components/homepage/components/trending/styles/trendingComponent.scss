@@ -49,11 +49,24 @@
         list-style: none;
         text-align: left;
 
+        .trending-tracks-list-header {
+          &:hover {
+            background-color: rgb(200, 200, 200);
+            cursor: default;
+          }
+        }
+
         li {
           padding: 10px;
           border-bottom: 1px solid rgb(125, 125, 125);
           font-family: "Exo", sans-serif;
+          font-weight: 900;
           overflow: hidden;
+
+          &:hover {
+            background-color: rgb(210, 210, 210);
+            cursor: pointer;
+          }
         }
       }
     }
