@@ -133,7 +133,6 @@
   padding-right: 15px;
   border-radius: 5px;
   border: none;
-  font-weight: 900;
 }
 
 #shows-section .showItem .buyTicketsButton:hover {
@@ -168,7 +167,7 @@
 }
 
 #shows-section #shows-section-footer {
-  margin-top: 25px;
+  margin-top: 20px;
   font-family: "Exo", sans-serif;
   font-size: 14px;
 }

@@ -59,5 +59,3 @@ export const searchByMetroAreaID = id => {
       return res.data.resultsPage.results.event;
     });
 };
-
-export const translateDate = date => {};

@@ -1,5 +1,43 @@
 #footer-section {
-  min-height: 40vh;
   background-color: #3a3a3a;
+  font-family: "Exo", sans-serif;
+  padding: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: left;
+  color: lightgrey;
+}
+
+#footer-section .footer-links-list {
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+#footer-section .footer-links-list #footer-links-list-header {
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+#footer-section .footer-links-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+#footer-section .footer-links-list ul li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+#footer-section #footer-bottom {
+  border-top: 1px solid #787878;
+  padding: 0;
+  padding-top: 40px;
+  text-align: left;
+}
+
+#footer-section #footer-bottom #footer-disclaimer-text {
+  margin-top: 10px;
+  font-size: 13px;
 }
 /*# sourceMappingURL=footerComponent.css.map */

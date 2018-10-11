@@ -17,8 +17,7 @@ class ShowsComponent extends Component {
     currentLocation: {},
     searchbarOpen: false,
     searchbarResults: [],
-    showsList: [],
-    showsListRaw: []
+    showsList: []
   };
 
   componentDidMount() {
@@ -34,8 +33,7 @@ class ShowsComponent extends Component {
       let showsList = [];
       searchByMetroAreaID(res.id).then(res => {
         console.log(res);
-        this.setState({ showsListRaw: res });
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 8; i++) {
           let show = {
             eventName: res[i].performance[0].displayName,
             venueName: res[i].venue.displayName,
@@ -83,7 +81,7 @@ class ShowsComponent extends Component {
     console.log(loc);
     searchByMetroAreaID(loc.metroArea.id).then(res => {
       console.log(res);
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 8; i++) {
         let show = {
           eventName: res[i].performance[0].displayName,
           venueName: res[i].venue.displayName,
