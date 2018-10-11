@@ -63,10 +63,20 @@ class TrendingComponent extends Component {
               className="col-6 col-sm-3 col-xl trending-artist-image-container wow zoomIn"
               data-wow-duration="0.5s"
             >
-              <div
-                className="trending-artist-image"
-                style={{ backgroundImage: `url(${artist.image[2]["#text"]})` }}
-              />
+              <a href={artist.url} target="_blank">
+                <div
+                  className="trending-artist-image"
+                  style={{
+                    backgroundImage: `url(${artist.image[2]["#text"]})`
+                  }}
+                >
+                  <div id="trending-artist-image-overlay">
+                    <div id="trending-artist-image-overlay-text">
+                      {artist.name}
+                    </div>
+                  </div>
+                </div>
+              </a>
             </div>
           ))}
         </div>
@@ -82,16 +92,19 @@ class TrendingComponent extends Component {
                 <div className="col-4">ARTIST</div>
               </li>
               {this.state.trendingTracksFirstHalf.map(track => (
-                <li
-                  className="row"
+                <a
+                  href={track.url}
+                  target="_blank"
                   key={this.state.trendingTracks.indexOf(track)}
                 >
-                  <div className="col-2">
-                    {this.state.trendingTracks.indexOf(track) + 1}
-                  </div>
-                  <div className="col-6">{track.name}</div>
-                  <div className="col-4">{track.artist.name}</div>
-                </li>
+                  <li className="row">
+                    <div className="col-2">
+                      {this.state.trendingTracks.indexOf(track) + 1}
+                    </div>
+                    <div className="col-6">{track.name}</div>
+                    <div className="col-4">{track.artist.name}</div>
+                  </li>
+                </a>
               ))}
             </ul>
           </div>
@@ -108,19 +121,31 @@ class TrendingComponent extends Component {
                 </li>
               ) : null}
               {this.state.trendingTracksSecondHalf.map(track => (
-                <li
-                  className="row"
+                <a
+                  href={track.url}
+                  target="_blank"
                   key={this.state.trendingTracks.indexOf(track)}
                 >
-                  <div className="col-2">
-                    {this.state.trendingTracks.indexOf(track) + 1}
-                  </div>
-                  <div className="col-6">{track.name}</div>
-                  <div className="col-4">{track.artist.name}</div>
-                </li>
+                  <li className="row">
+                    <div className="col-2">
+                      {this.state.trendingTracks.indexOf(track) + 1}
+                    </div>
+                    <div className="col-6">{track.name}</div>
+                    <div className="col-4">{track.artist.name}</div>
+                  </li>
+                </a>
               ))}
             </ul>
           </div>
+        </div>
+        <div id="trending-section-footer" className="col-12">
+          <div>Powered by</div>
+          <a href="http://www.lastfm.com" target="_blank">
+            <img
+              id="lastfm-logo"
+              src={require("../../../../assets/Last_fm.svg")}
+            />
+          </a>
         </div>
       </div>
     );

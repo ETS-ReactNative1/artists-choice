@@ -348,7 +348,7 @@ class HomepageTopSection extends Component {
               </h2>
             </div>
           </div>
-          <Link id="joinButton" className="col" to={"/join"}>
+          <Link id="joinButton" to={"/join"}>
             <button
               id="joinFreeButton"
               className="wow zoomIn"

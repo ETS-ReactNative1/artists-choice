@@ -17,7 +17,8 @@ class ShowsComponent extends Component {
     currentLocation: {},
     searchbarOpen: false,
     searchbarResults: [],
-    showsList: []
+    showsList: [],
+    showsListRaw: []
   };
 
   componentDidMount() {
@@ -33,6 +34,7 @@ class ShowsComponent extends Component {
       let showsList = [];
       searchByMetroAreaID(res.id).then(res => {
         console.log(res);
+        this.setState({ showsListRaw: res });
         for (let i = 0; i < 5; i++) {
           let show = {
             eventName: res[i].performance[0].displayName,
@@ -40,7 +42,8 @@ class ShowsComponent extends Component {
             venueLocation: res[i].location.city,
             eventDate: res[i].start.date,
             eventTime: res[i].start.time,
-            eventHeadlinerID: res[i].performance[0].artist.id
+            eventHeadlinerID: res[i].performance[0].artist.id,
+            eventUrl: res[i].uri
           };
           showsList.push(show);
         }
@@ -87,7 +90,8 @@ class ShowsComponent extends Component {
           venueLocation: res[i].location.city,
           eventDate: res[i].start.date,
           eventTime: res[i].start.time,
-          eventHeadlinerID: res[i].performance[0].artist.id
+          eventHeadlinerID: res[i].performance[0].artist.id,
+          eventUrl: res[i].uri
         };
         showsList.push(show);
       }
@@ -103,6 +107,30 @@ class ShowsComponent extends Component {
     this.setState({ searchbarResults: null }); //Reset results
     $("#location-searchbar").val(""); //Clear the searchbar
     $(".location-searchbar").addClass("location-searchbar-hidden");
+  }
+
+  translateDate(date) {
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+    const year = date.substr(0, 4);
+    const month = months[date.substr(5, 2) - 1];
+    const day = date.substr(8, 2);
+
+    const newDate = month + " " + day + ", " + year;
+
+    return newDate;
   }
 
   render() {
@@ -167,32 +195,47 @@ class ShowsComponent extends Component {
           className="col-12 col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3"
         >
           {this.state.showsList.length > 0 ? (
-            <ul id="shows-list">
+            <ul id="shows-list" className="col">
               {this.state.showsList.map(event => (
                 <li
                   key={this.state.showsList.indexOf(event)}
-                  className="showItem"
+                  className="showItem row"
                 >
-                  <div id="showImageContainer">
-                    <img
-                      className="showImage"
-                      src={
-                        "http://images.sk-static.com/images/media/profile_images/artists/" +
-                        event.eventHeadlinerID +
-                        "/large_avatar"
-                      }
+                  <div id="showImageContainer" className="col">
+                    <div
+                      id="showImage"
+                      style={{
+                        backgroundImage: `url(${"http://images.sk-static.com/images/media/profile_images/artists/" +
+                          event.eventHeadlinerID +
+                          "/huge_avatar"})`
+                      }}
                     />
                   </div>
-                  <div className="showDateTime">{event.eventDate}</div>
-                  <div className="showName">{event.eventName}</div>
-                  <div className="showVenue">{event.venueName}</div>
-                  <div className="showLocation">{event.venueLocation}</div>
-                  <button className="buyTicketsButton">Buy Tickets</button>
+                  <div className="showDetails col">
+                    <div className="showDateTime">
+                      {this.translateDate(event.eventDate)}
+                    </div>
+                    <div className="showName">{event.eventName}</div>
+                    <div className="showVenue">{event.venueName}</div>
+                    <div className="showLocation">{event.venueLocation}</div>
+                    <a href={event.eventUrl} target="_blank">
+                      <button className="buyTicketsButton">Buy Tickets</button>
+                    </a>
+                  </div>
                 </li>
               ))}
             </ul>
           ) : null}
           <button id="more-shows-button">See More Shows</button>
+        </div>
+        <div id="shows-section-footer" className="col-12">
+          <div>Powered by</div>
+          <a href="http://www.songkick.com" target="_blank">
+            <img
+              id="songkick-logo"
+              src={require("../../../../assets/songkick.svg")}
+            />
+          </a>
         </div>
       </div>
     );

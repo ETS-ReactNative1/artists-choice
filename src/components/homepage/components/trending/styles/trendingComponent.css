@@ -38,10 +38,41 @@
           clip-path: circle(70px at center);
 }
 
-#trending-section #trending-artist-section .trending-artist-image-container .trending-artist-image {
+#trending-section #trending-artist-section .trending-artist-image-container a .trending-artist-image {
   height: 150px;
-  background-size: cover;
+  background-size: auto 100%;
   background-position: center;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+#trending-section #trending-artist-section .trending-artist-image-container a .trending-artist-image:hover {
+  background-size: auto 110%;
+}
+
+#trending-section #trending-artist-section .trending-artist-image-container a .trending-artist-image #trending-artist-image-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+}
+
+#trending-section #trending-artist-section .trending-artist-image-container a .trending-artist-image #trending-artist-image-overlay #trending-artist-image-overlay-text {
+  color: white;
+  font-family: "Exo", sans-serif;
+  font-size: 18px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: auto;
+  opacity: 1;
+}
+
+#trending-section #trending-artist-section .trending-artist-image-container a:hover {
+  text-decoration: none;
 }
 
 #trending-section #trending-tracks-section {
@@ -63,6 +94,11 @@
   cursor: default;
 }
 
+#trending-section #trending-tracks-section .trending-tracks-list ul a {
+  text-decoration: none;
+  color: black;
+}
+
 #trending-section #trending-tracks-section .trending-tracks-list ul li {
   padding: 10px;
   border-bottom: 1px solid #7d7d7d;
@@ -74,6 +110,16 @@
 #trending-section #trending-tracks-section .trending-tracks-list ul li:hover {
   background-color: #d2d2d2;
   cursor: pointer;
+}
+
+#trending-section #trending-section-footer {
+  margin-top: 10px;
+  font-family: "Exo", sans-serif;
+  font-size: 14px;
+}
+
+#trending-section #trending-section-footer #lastfm-logo {
+  width: 75px;
 }
 
 @-webkit-keyframes pulse {
