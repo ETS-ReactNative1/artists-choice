@@ -249,7 +249,7 @@ class HomepageTopSection extends Component {
                     >
                       "Artist's Choice made getting my music heard as easy as
                       possible."
-                      <br />- Ronald Regan
+                      <br />- Franklin D. Roosevelt
                     </div>
                   </div>
                 </div>
@@ -260,7 +260,7 @@ class HomepageTopSection extends Component {
                 <div id="artist-overlay-4-text" className="artist-overlay-text">
                   "If you're serious about growing your following and reaching
                   as many fans as possible, Artist's Choice is a no brainer."
-                  <br />- Benjamin Franklin
+                  <br />- John F. Kennedy
                 </div>
               </div>
             </div>
