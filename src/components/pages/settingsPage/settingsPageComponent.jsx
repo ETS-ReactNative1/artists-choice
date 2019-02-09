@@ -15,6 +15,7 @@ class SettingsPageComponent extends Component {
     return (
       <div className="wow fadeIn">
         <h1>Settings Page</h1>
+        <p>Under construction...</p>
       </div>
     );
   }

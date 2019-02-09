@@ -7,8 +7,6 @@ import "./common/animate.css";
 
 import fire from "./config/fire";
 
-import { WOW } from "wowjs";
-
 import {
   faHeadphones,
   faBullhorn,
@@ -52,11 +50,6 @@ class App extends Component {
         //User is signed out.
       }
     });
-
-    //Init WOW animations
-    new WOW({
-      live: false
-    }).init();
   }
 
   render() {

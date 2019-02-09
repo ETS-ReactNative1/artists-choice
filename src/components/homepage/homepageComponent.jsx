@@ -25,6 +25,11 @@ class HomepageTopSection extends Component {
   };
 
   componentDidMount() {
+    //Init WOW animations
+    new WOW({
+      live: false
+    }).init();
+
     fire.auth().onAuthStateChanged(() => {
       if (fire.auth().currentUser !== null) {
         //If user is logged in.
@@ -44,11 +49,6 @@ class HomepageTopSection extends Component {
     this.startFlicker();
     $("#join-section-scrolling-text").innerText = "";
     this.scrollText();
-
-    //Init WOW animations
-    new WOW({
-      live: false
-    }).init();
   }
 
   startFlicker() {

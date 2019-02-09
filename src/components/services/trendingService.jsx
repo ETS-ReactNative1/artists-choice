@@ -7,7 +7,7 @@ export const getTrendingTracksList = limit => {
 
   return axios
     .get(
-      "http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=" +
+      "https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=" +
         apiKey +
         "&format=json" +
         "&limit=" +
@@ -23,7 +23,7 @@ export const getTrendingArtistsList = limit => {
 
   return axios
     .get(
-      "http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=" +
+      "https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=" +
         apiKey +
         "&format=json" +
         "&limit=" +

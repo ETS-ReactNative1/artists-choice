@@ -16,6 +16,7 @@ class ArtistProfilePageComponent extends Component {
     return (
       <div className="wow fadeIn">
         <h1>Artist Page</h1>
+        <p>Under construction...</p>
       </div>
     );
   }

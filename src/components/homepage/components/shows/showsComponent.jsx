@@ -17,7 +17,8 @@ class ShowsComponent extends Component {
     currentLocation: {},
     searchbarOpen: false,
     searchbarResults: [],
-    showsList: []
+    showsList: [],
+    visibleShows: []
   };
 
   componentDidMount() {
@@ -33,7 +34,7 @@ class ShowsComponent extends Component {
       let showsList = [];
       searchByMetroAreaID(res.id).then(res => {
         console.log(res);
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < res.length; i++) {
           let show = {
             eventName: res[i].performance[0].displayName,
             venueName: res[i].venue.displayName,
@@ -46,7 +47,9 @@ class ShowsComponent extends Component {
           showsList.push(show);
         }
         console.log(showsList);
-        this.setState({ showsList });
+        this.setState({ showsList }, () => {
+          this.setState({ visibleShows: this.state.showsList.slice(0, 5) });
+        });
       });
     }); //test http call
   }
@@ -81,23 +84,40 @@ class ShowsComponent extends Component {
     console.log(loc);
     searchByMetroAreaID(loc.metroArea.id).then(res => {
       console.log(res);
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < res.length; i++) {
         let show = {
-          eventName: res[i].performance[0].displayName,
+          eventName:
+            res[i].performance.length > 0
+              ? res[i].performance[0].displayName
+              : "",
           venueName: res[i].venue.displayName,
           venueLocation: res[i].location.city,
           eventDate: res[i].start.date,
           eventTime: res[i].start.time,
-          eventHeadlinerID: res[i].performance[0].artist.id,
+          eventHeadlinerID:
+            res[i].performance.length > 0
+              ? res[i].performance[0].artist.id
+              : "",
           eventUrl: res[i].uri
         };
         showsList.push(show);
       }
       console.log(showsList);
-      this.setState({ showsList });
+      this.setState({ showsList }, () => {
+        this.setState({ visibleShows: this.state.showsList.slice(0, 5) });
+      });
     });
     this.setState({ currentLocation: loc.city });
     this.resetSearchbar();
+  };
+
+  showMoreShows = amount => {
+    let visibleShows = [];
+    visibleShows = this.state.showsList.slice(
+      0,
+      this.state.visibleShows.length + amount
+    );
+    this.setState({ visibleShows });
   };
 
   resetSearchbar() {
@@ -192,11 +212,11 @@ class ShowsComponent extends Component {
           id="shows-section-content"
           className="col-12 col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3"
         >
-          {this.state.showsList.length > 0 ? (
+          {this.state.visibleShows.length > 0 ? (
             <ul id="shows-list" className="col">
-              {this.state.showsList.map(event => (
+              {this.state.visibleShows.map(event => (
                 <li
-                  key={this.state.showsList.indexOf(event)}
+                  key={this.state.visibleShows.indexOf(event)}
                   className="showItem row"
                 >
                   <div id="showImageContainer" className="col">
@@ -224,7 +244,9 @@ class ShowsComponent extends Component {
               ))}
             </ul>
           ) : null}
-          <button id="more-shows-button">See More Shows</button>
+          <button id="more-shows-button" onClick={() => this.showMoreShows(5)}>
+            See More Shows
+          </button>
         </div>
         <div id="shows-section-footer" className="col-12">
           <div>Powered by</div>
