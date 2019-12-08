@@ -30,6 +30,7 @@ class TrendingComponent extends Component {
     });
 
     getTrendingArtistsList(8).then(res => {
+      console.log("Artists: ", res);
       this.setState({ trendingArtists: res }, () => {
         console.log(this.state.trendingArtists);
         //Init WOW animations

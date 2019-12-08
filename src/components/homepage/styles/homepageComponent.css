@@ -126,7 +126,7 @@
 }
 
 #myh-section #myh-image-gallery {
-  max-width: 1600px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -680,7 +680,7 @@
 
 @media (min-width: 992px) {
   #myh-section .artist-overlay .artist-overlay-text {
-    font-size: 26px;
+    font-size: 22px;
   }
   #myh-section #myh-img-1 {
     background-image: url("../../../assets/artist-img-1.jpeg");
@@ -755,13 +755,13 @@
     margin-bottom: 80px;
   }
   #myh-section .artist-overlay .artist-overlay-text {
-    font-size: 28px;
+    font-size: 24px;
   }
   #myh-section #myh-img-1 {
     background-image: url("../../../assets/artist-img-1.jpeg");
     background-size: auto 126%;
     background-position: center;
-    height: 30vh;
+    height: 300px;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
   }
@@ -772,7 +772,7 @@
     background-image: url("../../../assets/artist-img-3.jpeg");
     background-size: 100% auto;
     background-position: 50% 45%;
-    height: 30vh;
+    height: 300px;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
   }
@@ -783,7 +783,7 @@
     background-image: url("../../../assets/artist-img-2.jpeg");
     background-size: 100% auto;
     background-position: center;
-    height: 30vh;
+    height: 300px;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
   }
@@ -794,7 +794,7 @@
     background-image: url("../../../assets/artist-img-5.jpeg");
     background-size: 110% auto;
     background-position: center;
-    height: 60vh;
+    height: 600px;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
   }
@@ -805,7 +805,7 @@
     background-image: url("../../../assets/artist-img-7.jpeg");
     background-size: auto 110%;
     background-position: center;
-    height: 30vh;
+    height: 300px;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
   }
@@ -816,7 +816,7 @@
     background-image: url("../../../assets/artist-img-6.jpeg");
     background-size: auto 110%;
     background-position: center;
-    height: 30vh;
+    height: 300px;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
   }

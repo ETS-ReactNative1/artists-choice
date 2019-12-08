@@ -23,6 +23,7 @@ export const getMetroArea = () => {
         apiKey
     )
     .then(res => {
+      console.log(res);
       return res.data.resultsPage.results.location[0].metroArea;
     });
 };
@@ -44,8 +45,6 @@ export const getLocationStringResults = str => {
 };
 
 export const searchByMetroAreaID = id => {
-  console.log("getting shows by metro area id...");
-
   return axios
     .get(
       "https://api.songkick.com/api/3.0/metro_areas/" +
@@ -56,6 +55,11 @@ export const searchByMetroAreaID = id => {
         getDate()
     )
     .then(res => {
-      return res.data.resultsPage.results.event;
+      console.log(res);
+      if (res.data.resultsPage.results.event) {
+        return res.data.resultsPage.results.event;
+      } else {
+        return [];
+      }
     });
 };
