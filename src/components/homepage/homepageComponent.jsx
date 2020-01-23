@@ -25,11 +25,6 @@ class HomepageTopSection extends Component {
   };
 
   componentDidMount() {
-    //Init WOW animations
-    new WOW({
-      live: false
-    }).init();
-
     fire.auth().onAuthStateChanged(() => {
       if (fire.auth().currentUser !== null) {
         //If user is logged in.
