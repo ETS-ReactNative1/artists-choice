@@ -17,8 +17,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import $ from "jquery";
 
-import { WOW } from "wowjs";
-
 class HomepageTopSection extends Component {
   state = {
     loggedInUser: null
@@ -32,11 +30,11 @@ class HomepageTopSection extends Component {
           .get()
           .then(user => {
             this.setState({ loggedInUser: user.data() }, () => {
-              console.log("User logged in:", this.state.loggedInUser);
+              //console.log("User logged in:", this.state.loggedInUser);
             });
           });
       } else {
-        console.log("no user signed in.");
+        //console.log("no user signed in.");
         this.setState({ loggedInUser: null });
       }
     });

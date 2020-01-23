@@ -28,12 +28,12 @@ class ShowsComponent extends Component {
 
   getInitialLocation() {
     getMetroArea().then(res => {
-      console.log(res);
+      //console.log(res);
       this.setState({ currentLocation: res });
 
       let showsList = [];
       searchByMetroAreaID(res.id).then(res => {
-        console.log(res);
+        //console.log(res);
         for (let i = 0; i < res.length; i++) {
           let show = {
             eventName: res[i].performance[0].displayName,
@@ -46,7 +46,7 @@ class ShowsComponent extends Component {
           };
           showsList.push(show);
         }
-        console.log(showsList);
+        //console.log(showsList);
         this.setState({ showsList }, () => {
           this.setState({ visibleShows: this.state.showsList.slice(0, 5) });
         });
@@ -81,9 +81,9 @@ class ShowsComponent extends Component {
 
   searchShows = loc => {
     let showsList = [];
-    console.log(loc);
+    //console.log(loc);
     searchByMetroAreaID(loc.metroArea.id).then(res => {
-      console.log(res);
+      //console.log(res);
       for (let i = 0; i < res.length; i++) {
         let show = {
           eventName:
@@ -102,7 +102,7 @@ class ShowsComponent extends Component {
         };
         showsList.push(show);
       }
-      console.log(showsList);
+      //console.log(showsList);
       this.setState({ showsList }, () => {
         this.setState({ visibleShows: this.state.showsList.slice(0, 5) });
       });
@@ -165,8 +165,8 @@ class ShowsComponent extends Component {
           {this.state.currentLocation.state != null
             ? this.state.currentLocation.state.displayName
             : this.state.currentLocation.country != null
-              ? this.state.currentLocation.country.displayName
-              : null}
+            ? this.state.currentLocation.country.displayName
+            : null}
           <div id="shows-change-location">
             <button
               id="shows-change-location-button"

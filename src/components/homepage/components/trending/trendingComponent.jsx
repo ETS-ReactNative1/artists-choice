@@ -23,16 +23,16 @@ class TrendingComponent extends Component {
       const trendingTracksFirstHalf = [...res].splice(0, 10);
       const trendingTracksSecondHalf = [...res].splice(10, 19);
       this.setState({ trendingTracks: res }, () => {
-        console.log(this.state.trendingTracks);
+        //console.log(this.state.trendingTracks);
       });
       this.setState({ trendingTracksFirstHalf });
       this.setState({ trendingTracksSecondHalf });
     });
 
     getTrendingArtistsList(8).then(res => {
-      console.log("Artists: ", res);
+      //console.log("Artists: ", res);
       this.setState({ trendingArtists: res }, () => {
-        console.log(this.state.trendingArtists);
+        //console.log(this.state.trendingArtists);
         //Init WOW animations
         new WOW({
           live: false
