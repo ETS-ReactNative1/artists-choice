@@ -5,7 +5,7 @@ import "./styles/showsComponent.css";
 import {
   getMetroArea,
   getLocationStringResults,
-  searchByMetroAreaID
+  searchByMetroAreaID,
 } from "../../../services/showsService";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,7 +18,7 @@ class ShowsComponent extends Component {
     searchbarOpen: false,
     searchbarResults: [],
     showsList: [],
-    visibleShows: []
+    visibleShows: [],
   };
 
   componentDidMount() {
@@ -27,22 +27,26 @@ class ShowsComponent extends Component {
   }
 
   getInitialLocation() {
-    getMetroArea().then(res => {
+    getMetroArea().then((res) => {
       //console.log(res);
       this.setState({ currentLocation: res });
 
       let showsList = [];
-      searchByMetroAreaID(res.id).then(res => {
-        //console.log(res);
+      searchByMetroAreaID(res.id).then((res) => {
+        console.log(res);
         for (let i = 0; i < res.length; i++) {
           let show = {
-            eventName: res[i].performance[0].displayName,
+            eventName: res[i].performance[0]
+              ? res[i].performance[0].displayName
+              : null,
             venueName: res[i].venue.displayName,
             venueLocation: res[i].location.city,
             eventDate: res[i].start.date,
             eventTime: res[i].start.time,
-            eventHeadlinerID: res[i].performance[0].artist.id,
-            eventUrl: res[i].uri
+            eventHeadlinerID: res[i].performance[0]
+              ? res[i].performance[0].artist.id
+              : null,
+            eventUrl: res[i].uri,
           };
           showsList.push(show);
         }
@@ -55,7 +59,7 @@ class ShowsComponent extends Component {
   }
 
   locationSearchbarInit() {
-    $("#location-searchbar").keyup(event => {
+    $("#location-searchbar").keyup((event) => {
       $(event.target).val().length > 0
         ? this.searchLocationString($(event.target).val())
         : this.setState({ searchbarResults: null });
@@ -72,17 +76,17 @@ class ShowsComponent extends Component {
   };
 
   searchLocationString(str) {
-    getLocationStringResults(str).then(res => {
+    getLocationStringResults(str).then((res) => {
       res
         ? this.setState({ searchbarResults: res.slice(0, 5) })
         : this.setState({ searchbarResults: null });
     });
   }
 
-  searchShows = loc => {
+  searchShows = (loc) => {
     let showsList = [];
     //console.log(loc);
-    searchByMetroAreaID(loc.metroArea.id).then(res => {
+    searchByMetroAreaID(loc.metroArea.id).then((res) => {
       //console.log(res);
       for (let i = 0; i < res.length; i++) {
         let show = {
@@ -98,7 +102,7 @@ class ShowsComponent extends Component {
             res[i].performance.length > 0
               ? res[i].performance[0].artist.id
               : "",
-          eventUrl: res[i].uri
+          eventUrl: res[i].uri,
         };
         showsList.push(show);
       }
@@ -111,7 +115,7 @@ class ShowsComponent extends Component {
     this.resetSearchbar();
   };
 
-  showMoreShows = amount => {
+  showMoreShows = (amount) => {
     let visibleShows = [];
     visibleShows = this.state.showsList.slice(
       0,
@@ -140,7 +144,7 @@ class ShowsComponent extends Component {
       "September",
       "October",
       "November",
-      "December"
+      "December",
     ];
     const year = date.substr(0, 4);
     const month = months[date.substr(5, 2) - 1];
@@ -188,7 +192,7 @@ class ShowsComponent extends Component {
               />
               <div id="searchbar-results-container">
                 {this.state.searchbarResults && this.state.searchbarOpen
-                  ? this.state.searchbarResults.map(loc => (
+                  ? this.state.searchbarResults.map((loc) => (
                       <div
                         key={this.state.searchbarResults.indexOf(loc)}
                         className="location-searchbar-result"
@@ -214,7 +218,7 @@ class ShowsComponent extends Component {
         >
           {this.state.visibleShows.length > 0 ? (
             <ul id="shows-list" className="col">
-              {this.state.visibleShows.map(event => (
+              {this.state.visibleShows.map((event) => (
                 <li
                   key={this.state.visibleShows.indexOf(event)}
                   className="showItem row"
@@ -223,9 +227,11 @@ class ShowsComponent extends Component {
                     <div
                       id="showImage"
                       style={{
-                        backgroundImage: `url(${"http://images.sk-static.com/images/media/profile_images/artists/" +
+                        backgroundImage: `url(${
+                          "http://images.sk-static.com/images/media/profile_images/artists/" +
                           event.eventHeadlinerID +
-                          "/huge_avatar"})`
+                          "/huge_avatar"
+                        })`,
                       }}
                     />
                   </div>

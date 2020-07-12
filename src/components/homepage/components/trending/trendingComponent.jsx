@@ -4,7 +4,7 @@ import "./styles/trendingComponent.css";
 
 import {
   getTrendingTracksList,
-  getTrendingArtistsList
+  getTrendingArtistsList,
 } from "../../../services/trendingService";
 
 import { WOW } from "wowjs";
@@ -15,11 +15,11 @@ class TrendingComponent extends Component {
     trendingArtists: [],
     trendingTracksFirstHalf: [],
     trendingTracksSecondHalf: [],
-    is768px: false
+    is768px: false,
   };
 
   componentDidMount() {
-    getTrendingTracksList(20).then(res => {
+    getTrendingTracksList(20).then((res) => {
       const trendingTracksFirstHalf = [...res].splice(0, 10);
       const trendingTracksSecondHalf = [...res].splice(10, 19);
       this.setState({ trendingTracks: res }, () => {
@@ -29,13 +29,13 @@ class TrendingComponent extends Component {
       this.setState({ trendingTracksSecondHalf });
     });
 
-    getTrendingArtistsList(8).then(res => {
+    getTrendingArtistsList(8).then((res) => {
       //console.log("Artists: ", res);
       this.setState({ trendingArtists: res }, () => {
         //console.log(this.state.trendingArtists);
         //Init WOW animations
         new WOW({
-          live: false
+          live: false,
         }).init();
       });
     });
@@ -57,7 +57,7 @@ class TrendingComponent extends Component {
             src={require("../../../../assets/whats_trending.svg")}
           />
         </div>
-        <div id="trending-artist-section" className="row">
+        {/* <div id="trending-artist-section" className="row">
           {this.state.trendingArtists.map(artist => (
             <div
               key={artist.name}
@@ -80,7 +80,7 @@ class TrendingComponent extends Component {
               </a>
             </div>
           ))}
-        </div>
+        </div> */}
         <div id="trending-tracks-section" className="row">
           <div
             id="trending-tracks-list-left"
@@ -92,7 +92,7 @@ class TrendingComponent extends Component {
                 <div className="col-6">TITLE</div>
                 <div className="col-4">ARTIST</div>
               </li>
-              {this.state.trendingTracksFirstHalf.map(track => (
+              {this.state.trendingTracksFirstHalf.map((track) => (
                 <a
                   href={track.url}
                   target="_blank"
@@ -121,7 +121,7 @@ class TrendingComponent extends Component {
                   <div className="col-4">ARTIST</div>
                 </li>
               ) : null}
-              {this.state.trendingTracksSecondHalf.map(track => (
+              {this.state.trendingTracksSecondHalf.map((track) => (
                 <a
                   href={track.url}
                   target="_blank"
