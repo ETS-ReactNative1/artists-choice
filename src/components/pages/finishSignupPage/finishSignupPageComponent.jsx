@@ -4,7 +4,7 @@ import fire from "../../../config/fire";
 
 import {
   dbSubmitArtistDetails,
-  dbSubmitFanDetails
+  dbSubmitFanDetails,
 } from "../../services/dbService";
 
 import "./styles/finishSignupPageComponent.css";
@@ -24,43 +24,43 @@ class FinishSignupPageComponent extends Component {
 
     fanName: "",
     fanCountry: "US",
-    fanZipcode: ""
+    fanZipcode: "",
   };
 
   componentDidMount() {
     setTimeout(() => {
       //Init WOW animations
       new WOW({
-        live: false
+        live: false,
       }).init();
     }, 1000);
   }
 
-  handleArtistNameChange = e => {
+  handleArtistNameChange = (e) => {
     this.setState({ artistName: e.target.value }, () => {});
   };
 
-  handleFanNameChange = e => {
+  handleFanNameChange = (e) => {
     this.setState({ fanName: e.target.value }, () => {});
   };
 
-  handleArtistGenreChange = e => {
+  handleArtistGenreChange = (e) => {
     this.setState({ artistGenre: e.target.value }, () => {});
   };
 
-  handleArtistCountryChange = e => {
+  handleArtistCountryChange = (e) => {
     this.setState({ artistCountry: e.target.value }, () => {});
   };
 
-  handleFanCountryChange = e => {
+  handleFanCountryChange = (e) => {
     this.setState({ fanCountry: e.target.value }, () => {});
   };
 
-  handleArtistZipCodeChange = e => {
+  handleArtistZipCodeChange = (e) => {
     this.setState({ artistZipcode: e.target.value }, () => {});
   };
 
-  handleFanZipCodeChange = e => {
+  handleFanZipCodeChange = (e) => {
     this.setState({ fanZipcode: e.target.value }, () => {});
   };
 
@@ -99,7 +99,7 @@ class FinishSignupPageComponent extends Component {
     }
   }
 
-  processArtistDetails = e => {
+  processArtistDetails = (e) => {
     e.preventDefault(); //Prevent default submit behaviour
 
     if (
@@ -118,7 +118,7 @@ class FinishSignupPageComponent extends Component {
     }
   };
 
-  processFanDetails = e => {
+  processFanDetails = (e) => {
     e.preventDefault(); //Prevent default submit behaviour
 
     if (
@@ -144,6 +144,7 @@ class FinishSignupPageComponent extends Component {
               <img
                 id="star-logo"
                 src={require("../../../assets/logo_star.svg")}
+                alt=""
               />
               <h1>Artist Details</h1>
               <form className="artist-signup-form">
@@ -509,6 +510,7 @@ class FinishSignupPageComponent extends Component {
               <img
                 id="star-logo"
                 src={require("../../../assets/logo_star.svg")}
+                alt=""
               />
               <h1>Fan Details</h1>
               <form className="fan-signup-form">
@@ -812,6 +814,7 @@ class FinishSignupPageComponent extends Component {
             <img
               id="loading-blips"
               src={require("../../../assets/loading-blips.gif")}
+              alt=""
             />
           </div>
         )}

@@ -16,7 +16,7 @@ class JoinPageComponent extends Component {
   state = {
     userType: "",
     email: "",
-    password: ""
+    password: "",
   };
 
   componentDidMount() {
@@ -26,11 +26,11 @@ class JoinPageComponent extends Component {
 
     //Init WOW animations
     new WOW({
-      live: false
+      live: false,
     }).init();
   }
 
-  handleEmailChange = e => {
+  handleEmailChange = (e) => {
     this.setState({ email: e.target.value }, () => {
       console.log(this.state.email);
 
@@ -41,13 +41,13 @@ class JoinPageComponent extends Component {
     });
   };
 
-  handlePasswordChange = e => {
+  handlePasswordChange = (e) => {
     this.setState({ password: e.target.value }, () => {
       console.log(this.state.password);
     });
   };
 
-  validate = e => {
+  validate = (e) => {
     e.preventDefault(); //Prevent default submit behaviour
 
     if (
@@ -113,7 +113,7 @@ class JoinPageComponent extends Component {
         fire.auth().signInWithEmailAndPassword(email, password); //Sign in with new credentials
         dbAddUser(fire.auth().currentUser, this.state.userType);
       })
-      .catch(error => {
+      .catch((error) => {
         //Handle errors here
         console.log(error);
         if (error.code === "auth/email-already-in-use") {
@@ -127,7 +127,7 @@ class JoinPageComponent extends Component {
     this.setState({ userType });
   }
 
-  validateAndLogin = e => {
+  validateAndLogin = (e) => {
     e.preventDefault(); //Prevent default submit behaviour
 
     this.validateEmail(this.state.email) &&
@@ -144,7 +144,7 @@ class JoinPageComponent extends Component {
         console.log(fire.auth().currentUser);
         dbGetUser(fire.auth().currentUser.uid)
           .get()
-          .then(user => {
+          .then((user) => {
             console.log(user.data().altName);
             window.location = "/" + user.data().altName;
           });
@@ -160,6 +160,7 @@ class JoinPageComponent extends Component {
               <img
                 id="star-logo"
                 src={require("../../../assets/logo_star.svg")}
+                alt=""
               />
               <h1>Join As Artist</h1>
               <form className="artist-signup-form">
@@ -228,6 +229,7 @@ class JoinPageComponent extends Component {
               <img
                 id="star-logo"
                 src={require("../../../assets/logo_star.svg")}
+                alt=""
               />
               <h1>Join As Fan</h1>
               <form className="artist-signup-form">
@@ -296,6 +298,7 @@ class JoinPageComponent extends Component {
               <img
                 id="star-logo"
                 src={require("../../../assets/logo_star.svg")}
+                alt=""
               />
               <h1>Log In</h1>
               <form className="artist-signup-form">
@@ -349,6 +352,7 @@ class JoinPageComponent extends Component {
               <img
                 id="join-section-star-logo"
                 src={require("../../../assets/logo_star.svg")}
+                alt=""
               />
               <div className="col" style={{ fontWeight: "bold" }}>
                 Join Artist's Choice

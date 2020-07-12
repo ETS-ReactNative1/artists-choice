@@ -55,6 +55,7 @@ class TrendingComponent extends Component {
           <img
             id="whats-trending-text"
             src={require("../../../../assets/whats_trending.svg")}
+            alt=""
           />
         </div>
         {/* <div id="trending-artist-section" className="row">
@@ -145,6 +146,7 @@ class TrendingComponent extends Component {
             <img
               id="lastfm-logo"
               src={require("../../../../assets/Last_fm.svg")}
+              alt=""
             />
           </a>
         </div>

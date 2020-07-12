@@ -36,7 +36,11 @@ class NavbarComponent extends Component {
           className="navbar fixed-top navbar-expand-lg navbar-light bg-light top-navbar"
         >
           <a className="navbar-brand" href="#">
-            <img id="navbar-logo" src={require("../../assets/logo_star.svg")} />
+            <img
+              id="navbar-logo"
+              src={require("../../assets/logo_star.svg")}
+              alt=""
+            />
           </a>
           <button
             className="navbar-toggler"

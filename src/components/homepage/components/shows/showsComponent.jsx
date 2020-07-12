@@ -260,6 +260,7 @@ class ShowsComponent extends Component {
             <img
               id="songkick-logo"
               src={require("../../../../assets/songkick.svg")}
+              alt=""
             />
           </a>
         </div>

@@ -19,7 +19,7 @@ import $ from "jquery";
 
 class HomepageTopSection extends Component {
   state = {
-    loggedInUser: null
+    loggedInUser: null,
   };
 
   componentDidMount() {
@@ -28,7 +28,7 @@ class HomepageTopSection extends Component {
         //If user is logged in.
         dbGetUser(fire.auth().currentUser.uid)
           .get()
-          .then(user => {
+          .then((user) => {
             this.setState({ loggedInUser: user.data() }, () => {
               //console.log("User logged in:", this.state.loggedInUser);
             });
@@ -67,13 +67,13 @@ class HomepageTopSection extends Component {
       "Build Your Brand",
       "Find Local Shows",
       "Share Your Songs",
-      "Connect With Artists"
+      "Connect With Artists",
     ];
     let currentListIndex = 0;
 
     $("#join-section-scrolling-text").bind(
       "oanimationiteration animationiteration webkitAnimationIteration",
-      function() {
+      function () {
         this.innerText = list[currentListIndex];
         currentListIndex < list.length - 1
           ? currentListIndex++
@@ -106,17 +106,20 @@ class HomepageTopSection extends Component {
               id="logo-star-top"
               className="wow fadeInUp"
               src={require("../../assets/logo_star.svg")}
+              alt=""
             />
             <img
               id="logo-artists-top"
               className="wow fadeInLeft"
               src={require("../../assets/logo_ARTISTS_top.svg")}
+              alt=""
             />
             <img
               id="logo-artists-outline"
               className="wow fadeIn"
               data-wow-delay="0.6s"
               src={require("../../assets/logo_ARTISTS_outline_split.svg")}
+              alt=""
             />
           </div>
           <div
@@ -139,11 +142,13 @@ class HomepageTopSection extends Component {
               id="logo-artists-choice"
               src={require("../../assets/logo_CHOICE.svg")}
               className="d-sm-none wow fadeIn"
+              alt=""
             />
             <img
               id="logo-artists-bottom"
               className="wow fadeInLeft"
               src={require("../../assets/logo_ARTISTS_bottom.svg")}
+              alt=""
             />
           </div>
           <div
@@ -155,6 +160,7 @@ class HomepageTopSection extends Component {
               className="wow fadeInRight"
               src={require("../../assets/logo_CHOICE.svg")}
               style={{ marginTop: "5vmin" }}
+              alt=""
             />
           </div>
         </div>
@@ -178,6 +184,7 @@ class HomepageTopSection extends Component {
               <img
                 id="make-yourself-heard-img"
                 src={require("../../assets/makeYourselfHeard.svg")}
+                alt=""
               />
               <h2>This is where artists launch careers.</h2>
             </div>
@@ -359,6 +366,7 @@ class HomepageTopSection extends Component {
               id="join-section-star-logo"
               className="wow fadeIn"
               src={require("../../assets/logo_star.svg")}
+              alt=""
             />
             <div className="col wow fadeIn" style={{ fontWeight: "bold" }}>
               Join Artist's Choice
