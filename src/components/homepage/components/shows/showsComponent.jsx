@@ -249,8 +249,15 @@ class ShowsComponent extends Component {
                 </li>
               ))}
             </ul>
-          ) : null}
-          <button id="more-shows-button" onClick={() => this.showMoreShows(5)}>
+          ) :
+          (<div id="no-shows-container">
+            No Shows Found
+          </div>)}
+          <button
+            id="more-shows-button"
+            onClick={() => this.showMoreShows(5)}
+            disabled={this.state.visibleShows.length < this.state.showsList.length &&
+            this.state.showsList.length > 0}>
             See More Shows
           </button>
         </div>

@@ -144,6 +144,10 @@
   outline: none;
 }
 
+#shows-section #no-shows-container {
+  margin-bottom: 45px;
+}
+
 #shows-section #more-shows-button {
   padding: 5px;
   margin-top: 10px;
